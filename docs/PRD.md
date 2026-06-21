@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars PRD |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.0 |
+| Version | v1.1 |
 | Date | June 21, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -43,7 +43,7 @@ The Mini Space Wars MVP is limited to a short, completable, and publishable 2D v
 - 3 fixed enemy waves
 - Player life system
 - Shooting and destroying enemies
-- Player taking damage from enemy attacks
+- Player taking damage from enemy projectiles and enemy ship contact
 - Wave completion and game end states
 - Simple start, gameplay, and result screens
 - Desktop build shareable through GitHub Releases
@@ -81,7 +81,7 @@ The following features are not included in the Mini Space Wars MVP scope:
 - FR-08: The game must include only 1 enemy type.
 - FR-09: Enemies must enter from the top of the play area and move downward.
 - FR-10: Enemies must fire projectiles that can damage the player.
-- FR-11: When the player ship is hit by an enemy projectile, the player must lose 1 life.
+- FR-11: When the player ship is hit by an enemy projectile or touches an enemy ship, the player must lose 1 life.
 - FR-12: The player must start the game with 3 lives.
 - FR-13: When the player's life count reaches 0, the game must end as a loss.
 - FR-14: When the player destroys all enemies in all 3 enemy waves, the game must end as a win.
@@ -100,7 +100,7 @@ The Mini Space Wars MVP is considered complete when the following criteria are m
 - Each new wave starts after all enemies in the previous wave have been destroyed.
 - Enemies move downward from the top of the play area and fire projectiles at the player.
 - The player starts with 3 lives.
-- The player loses life when hit by an enemy projectile.
+- The player loses life when hit by an enemy projectile or touching an enemy ship.
 - A loss state is shown when the player's life count reaches 0.
 - A win state is shown when the player destroys all enemies in all 3 waves.
 - A new game can be started after the game ends.

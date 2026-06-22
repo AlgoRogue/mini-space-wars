@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars Implementation Task Plan |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.1 |
+| Version | v1.2 |
 | Date | June 22, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -92,6 +92,7 @@ Tasks:
 - [ ] `M2-T12` — Move player projectiles upward.
 - [ ] `M2-T13` — Remove player projectiles after they leave the play area.
 - [ ] `M2-T14` — Add simple debug logs for firing if useful during development.
+- [ ] `M2-T15` — Configure gameplay viewport size.
 
 Completion check:
 

@@ -78,12 +78,12 @@ Goal: Create the first playable vertical slice with player movement, firing, and
 
 Tasks:
 
-- [ ] `M2-T01` — Create the `Player` scene.
-- [ ] `M2-T02` — Create the `Player` script.
-- [ ] `M2-T03` — Add the first pixel art player ship sprite.
-- [ ] `M2-T04` — Implement WASD movement.
-- [ ] `M2-T05` — Implement slightly accelerated movement.
-- [ ] `M2-T06` — Clamp the player ship inside the visible gameplay bounds.
+- [x] `M2-T01` — Create the `Player` scene.
+- [x] `M2-T02` — Create the `Player` script.
+- [x] `M2-T03` — Add the first pixel art player ship sprite.
+- [x] `M2-T04` — Implement WASD movement.
+- [x] `M2-T05` — Implement slightly accelerated movement.
+- [x] `M2-T06` — Clamp the player ship inside the visible gameplay bounds.
 - [ ] `M2-T07` — Create the `Weapon` script for the basic player weapon.
 - [ ] `M2-T08` — Create the `PlayerProjectile` scene.
 - [ ] `M2-T09` — Create the `PlayerProjectile` script.
@@ -92,7 +92,7 @@ Tasks:
 - [ ] `M2-T12` — Move player projectiles upward.
 - [ ] `M2-T13` — Remove player projectiles after they leave the play area.
 - [ ] `M2-T14` — Add simple debug logs for firing if useful during development.
-- [ ] `M2-T15` — Configure gameplay viewport size.
+- [x] `M2-T15` — Configure gameplay viewport size.
 
 Completion check:
 

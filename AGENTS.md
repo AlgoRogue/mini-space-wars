@@ -448,6 +448,24 @@ If Godot cannot be launched:
 - Report that runtime verification was not performed.
 - Provide exact manual test steps for the user.
 
+### Godot CLI Validation
+
+For relevant tasks, agents must run Godot CLI validation instead of relying only on static inspection.
+
+Minimum validation command:
+
+```bash
+godot --headless --path . --import
+```
+
+Rules:
+
+- Run Godot CLI validation after changes to `project.godot`, scenes, scripts, resources, or project settings.
+- Use `--headless` by default for automated validation checks.
+- Report the exact command, exit code, and important output in the task report.
+- Do not infer runtime validation results from static checks.
+- If the `godot` command is not accessible through the system `PATH`, report it clearly as an environment problem.
+
 Task reports must include:
 
 - Checks actually run

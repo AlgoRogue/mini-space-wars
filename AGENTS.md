@@ -87,7 +87,28 @@ Do not add “future-proofing” abstractions for these features.
 
 ---
 
-## 4. Technology Constraints
+## 4. Task Identification
+
+Every implementation task has a permanent Task ID using this format:
+
+```text
+M<number>-T<two-digit-number>
+```
+
+Task ID rules:
+
+- Task IDs must match `docs/TASK_PLAN.md`.
+- Every implementation prompt must contain exactly one primary Task ID.
+- The agent must repeat the Task ID in the end-of-task report.
+- New tasks must be added to `docs/TASK_PLAN.md` before implementation.
+- A Task ID must never be reused for another task.
+- The agent must not switch to another Task ID without explicit instruction.
+- When Git work is requested, branch and commit names must include the Task ID.
+- Subtask IDs may use the `M1-T01-S01` format only when genuinely necessary.
+
+---
+
+## 5. Technology Constraints
 
 Use:
 
@@ -117,7 +138,7 @@ Any new dependency requires explicit user approval.
 
 ---
 
-## 5. Architecture Rules
+## 6. Architecture Rules
 
 Follow the responsibilities defined in the TDD.
 
@@ -213,7 +234,7 @@ Do not merge responsibilities merely to reduce file count.
 
 ---
 
-## 6. Scene and File Rules
+## 7. Scene and File Rules
 
 Use the approved project structure:
 
@@ -250,7 +271,7 @@ Rules:
 
 ---
 
-## 7. GDScript Standards
+## 8. GDScript Standards
 
 Code must be written for readability by a learner.
 
@@ -288,7 +309,7 @@ Do not:
 
 ---
 
-## 8. Gameplay Rules That Must Be Preserved
+## 9. Gameplay Rules That Must Be Preserved
 
 Agents must preserve these approved behaviors:
 
@@ -317,7 +338,7 @@ Do not alter balance values that are already approved unless the active task is 
 
 ---
 
-## 9. Signals and Communication
+## 10. Signals and Communication
 
 Use the documented signal names unless implementation reveals a concrete technical issue:
 
@@ -342,7 +363,7 @@ Rules:
 
 ---
 
-## 10. State and Reset Rules
+## 11. State and Reset Rules
 
 High-level states:
 
@@ -370,7 +391,7 @@ Prefer manual reset as documented. Do not replace it with full scene reload unle
 
 ---
 
-## 11. Task Execution Workflow
+## 12. Task Execution Workflow
 
 For every task:
 
@@ -405,7 +426,7 @@ When possible, continue with unaffected parts of the task while reporting the bl
 
 ---
 
-## 12. Validation and Testing
+## 13. Validation and Testing
 
 The project currently uses manual testing as its approved testing approach.
 
@@ -439,7 +460,7 @@ Debug logs may be added temporarily when useful, but must not become required fo
 
 ---
 
-## 13. Definition of Done
+## 14. Definition of Done
 
 A task is complete only when:
 
@@ -458,7 +479,7 @@ A milestone is complete only when every listed completion check in `TASK_PLAN.md
 
 ---
 
-## 14. Git Rules
+## 15. Git Rules
 
 Unless the task prompt explicitly instructs otherwise:
 
@@ -499,7 +520,7 @@ docs: update milestone progress
 
 ---
 
-## 15. Documentation Rules
+## 16. Documentation Rules
 
 Update documentation only when:
 

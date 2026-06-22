@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars Implementation Task Plan |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.0 |
+| Version | v1.1 |
 | Date | June 22, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -46,7 +46,7 @@ Goal: Prepare the Godot project structure and basic project settings required fo
 
 Tasks:
 
-- [ ] Create the planned folder structure:
+- [ ] `M1-T01` — Create the planned folder structure:
   - `res://assets/audio/`
   - `res://assets/sprites/`
   - `res://scenes/enemies/`
@@ -57,14 +57,14 @@ Tasks:
   - `res://scripts/player/`
   - `res://scripts/projectiles/`
   - `res://scripts/ui/`
-- [ ] Add short README or notes files where needed to explain folder purpose.
-- [ ] Configure Godot input action for move up.
-- [ ] Configure Godot input action for move down.
-- [ ] Configure Godot input action for move left.
-- [ ] Configure Godot input action for move right.
-- [ ] Configure Godot input action for fire.
-- [ ] Confirm that the project opens correctly in Godot 4.x.
-- [ ] Confirm that the repository remains clean after project setup files are saved.
+- [ ] `M1-T02` — Add short README or notes files where needed to explain folder purpose.
+- [ ] `M1-T03` — Configure Godot input action for move up.
+- [ ] `M1-T04` — Configure Godot input action for move down.
+- [ ] `M1-T05` — Configure Godot input action for move left.
+- [ ] `M1-T06` — Configure Godot input action for move right.
+- [ ] `M1-T07` — Configure Godot input action for fire.
+- [ ] `M1-T08` — Confirm that the project opens correctly in Godot 4.x.
+- [ ] `M1-T09` — Confirm that the repository remains clean after project setup files are saved.
 
 Completion check:
 
@@ -78,20 +78,20 @@ Goal: Create the first playable vertical slice with player movement, firing, and
 
 Tasks:
 
-- [ ] Create the `Player` scene.
-- [ ] Create the `Player` script.
-- [ ] Add the first pixel art player ship sprite.
-- [ ] Implement WASD movement.
-- [ ] Implement slightly accelerated movement.
-- [ ] Clamp the player ship inside the visible gameplay bounds.
-- [ ] Create the `Weapon` script for the basic player weapon.
-- [ ] Create the `PlayerProjectile` scene.
-- [ ] Create the `PlayerProjectile` script.
-- [ ] Implement hold-to-fire behavior with Space.
-- [ ] Spawn visible player projectiles from the player ship.
-- [ ] Move player projectiles upward.
-- [ ] Remove player projectiles after they leave the play area.
-- [ ] Add simple debug logs for firing if useful during development.
+- [ ] `M2-T01` — Create the `Player` scene.
+- [ ] `M2-T02` — Create the `Player` script.
+- [ ] `M2-T03` — Add the first pixel art player ship sprite.
+- [ ] `M2-T04` — Implement WASD movement.
+- [ ] `M2-T05` — Implement slightly accelerated movement.
+- [ ] `M2-T06` — Clamp the player ship inside the visible gameplay bounds.
+- [ ] `M2-T07` — Create the `Weapon` script for the basic player weapon.
+- [ ] `M2-T08` — Create the `PlayerProjectile` scene.
+- [ ] `M2-T09` — Create the `PlayerProjectile` script.
+- [ ] `M2-T10` — Implement hold-to-fire behavior with Space.
+- [ ] `M2-T11` — Spawn visible player projectiles from the player ship.
+- [ ] `M2-T12` — Move player projectiles upward.
+- [ ] `M2-T13` — Remove player projectiles after they leave the play area.
+- [ ] `M2-T14` — Add simple debug logs for firing if useful during development.
 
 Completion check:
 
@@ -107,29 +107,29 @@ Goal: Add the enemy, projectile collision, player damage, lives, and temporary i
 
 Tasks:
 
-- [ ] Create the `Enemy` scene.
-- [ ] Create the `Enemy` script.
-- [ ] Add the first pixel art enemy ship sprite.
-- [ ] Implement enemy downward movement.
-- [ ] Implement slight horizontal oscillation.
-- [ ] Create the `EnemyWeapon` script.
-- [ ] Create the `EnemyProjectile` scene.
-- [ ] Create the `EnemyProjectile` script.
-- [ ] Implement fixed-interval enemy firing.
-- [ ] Move enemy projectiles downward.
-- [ ] Remove enemy projectiles after they leave the play area.
-- [ ] Implement `Area2D`-based hit detection for projectiles and ships.
-- [ ] Implement player projectile hitting enemy.
-- [ ] Destroy enemy in one hit from player projectile.
-- [ ] Remove player projectile after enemy hit.
-- [ ] Implement enemy projectile damaging player.
-- [ ] Implement enemy ship contact damaging player.
-- [ ] Add player life tracking with 3 lives.
-- [ ] Add 1.5-second temporary invulnerability after player damage.
-- [ ] Prevent repeated instant damage during invulnerability.
-- [ ] Emit or log player damaged events.
-- [ ] Emit or log player dead events.
-- [ ] Emit or log enemy destroyed events.
+- [ ] `M3-T01` — Create the `Enemy` scene.
+- [ ] `M3-T02` — Create the `Enemy` script.
+- [ ] `M3-T03` — Add the first pixel art enemy ship sprite.
+- [ ] `M3-T04` — Implement enemy downward movement.
+- [ ] `M3-T05` — Implement slight horizontal oscillation.
+- [ ] `M3-T06` — Create the `EnemyWeapon` script.
+- [ ] `M3-T07` — Create the `EnemyProjectile` scene.
+- [ ] `M3-T08` — Create the `EnemyProjectile` script.
+- [ ] `M3-T09` — Implement fixed-interval enemy firing.
+- [ ] `M3-T10` — Move enemy projectiles downward.
+- [ ] `M3-T11` — Remove enemy projectiles after they leave the play area.
+- [ ] `M3-T12` — Implement `Area2D`-based hit detection for projectiles and ships.
+- [ ] `M3-T13` — Implement player projectile hitting enemy.
+- [ ] `M3-T14` — Destroy enemy in one hit from player projectile.
+- [ ] `M3-T15` — Remove player projectile after enemy hit.
+- [ ] `M3-T16` — Implement enemy projectile damaging player.
+- [ ] `M3-T17` — Implement enemy ship contact damaging player.
+- [ ] `M3-T18` — Add player life tracking with 3 lives.
+- [ ] `M3-T19` — Add 1.5-second temporary invulnerability after player damage.
+- [ ] `M3-T20` — Prevent repeated instant damage during invulnerability.
+- [ ] `M3-T21` — Emit or log player damaged events.
+- [ ] `M3-T22` — Emit or log player dead events.
+- [ ] `M3-T23` — Emit or log enemy destroyed events.
 
 Completion check:
 
@@ -147,28 +147,28 @@ Goal: Implement the 3 fixed enemy waves using Godot Resource-based wave data.
 
 Tasks:
 
-- [ ] Create the wave data Resource script.
-- [ ] Create the Wave 1 Resource file.
-- [ ] Create the Wave 2 Resource file.
-- [ ] Create the Wave 3 Resource file.
-- [ ] Configure wave number data.
-- [ ] Configure enemy count data.
-- [ ] Configure enemy fire interval data.
-- [ ] Configure spawn area limit data.
-- [ ] Set Wave 1 to 3 enemies.
-- [ ] Set Wave 2 to 5 enemies.
-- [ ] Set Wave 3 to 7 enemies.
-- [ ] Configure enemy fire interval to increase difficulty from wave to wave.
-- [ ] Create the `WaveManager` script.
-- [ ] Load the 3 fixed wave resources.
-- [ ] Spawn enemies for the current wave.
-- [ ] Spawn enemies at random positions within configured spawn area limits.
-- [ ] Track enemy destroyed events.
-- [ ] Start the next wave immediately after the current wave is cleared.
-- [ ] Emit an all-waves-cleared event after Wave 3 is completed.
-- [ ] Add simple debug logs for wave started.
-- [ ] Add simple debug logs for enemy destroyed.
-- [ ] Add simple debug logs for all waves cleared.
+- [ ] `M4-T01` — Create the wave data Resource script.
+- [ ] `M4-T02` — Create the Wave 1 Resource file.
+- [ ] `M4-T03` — Create the Wave 2 Resource file.
+- [ ] `M4-T04` — Create the Wave 3 Resource file.
+- [ ] `M4-T05` — Configure wave number data.
+- [ ] `M4-T06` — Configure enemy count data.
+- [ ] `M4-T07` — Configure enemy fire interval data.
+- [ ] `M4-T08` — Configure spawn area limit data.
+- [ ] `M4-T09` — Set Wave 1 to 3 enemies.
+- [ ] `M4-T10` — Set Wave 2 to 5 enemies.
+- [ ] `M4-T11` — Set Wave 3 to 7 enemies.
+- [ ] `M4-T12` — Configure enemy fire interval to increase difficulty from wave to wave.
+- [ ] `M4-T13` — Create the `WaveManager` script.
+- [ ] `M4-T14` — Load the 3 fixed wave resources.
+- [ ] `M4-T15` — Spawn enemies for the current wave.
+- [ ] `M4-T16` — Spawn enemies at random positions within configured spawn area limits.
+- [ ] `M4-T17` — Track enemy destroyed events.
+- [ ] `M4-T18` — Start the next wave immediately after the current wave is cleared.
+- [ ] `M4-T19` — Emit an all-waves-cleared event after Wave 3 is completed.
+- [ ] `M4-T20` — Add simple debug logs for wave started.
+- [ ] `M4-T21` — Add simple debug logs for enemy destroyed.
+- [ ] `M4-T22` — Add simple debug logs for all waves cleared.
 
 Completion check:
 
@@ -185,30 +185,30 @@ Goal: Implement the full game flow with start, gameplay, win, game over, HUD, an
 
 Tasks:
 
-- [ ] Implement the `START` game state.
-- [ ] Implement the `PLAYING` game state.
-- [ ] Implement the `WIN` game state.
-- [ ] Implement the `GAME_OVER` game state.
-- [ ] Add start UI inside the `Main` scene.
-- [ ] Display the game title on the start screen.
-- [ ] Display a start prompt on the start screen.
-- [ ] Display a controls hint on the start screen.
-- [ ] Create the `HUD` scene.
-- [ ] Display player lives in the HUD.
-- [ ] Display current wave number in the HUD.
-- [ ] Update HUD when player lives change.
-- [ ] Update HUD when the current wave changes.
-- [ ] Create the `ResultPanel` scene.
-- [ ] Show "You Win" when all waves are cleared.
-- [ ] Show "Game Over" when player lives reach 0.
-- [ ] Add a new game option to the result screen.
-- [ ] Emit `restart_requested` from `ResultPanel`.
-- [ ] Implement `Main.reset_game()`.
-- [ ] Clear enemies and projectiles during reset.
-- [ ] Reset player position, lives, and invulnerability during reset.
-- [ ] Reset wave progress during reset.
-- [ ] Start Wave 1 after reset.
-- [ ] Show and hide UI elements based on the current game state.
+- [ ] `M5-T01` — Implement the `START` game state.
+- [ ] `M5-T02` — Implement the `PLAYING` game state.
+- [ ] `M5-T03` — Implement the `WIN` game state.
+- [ ] `M5-T04` — Implement the `GAME_OVER` game state.
+- [ ] `M5-T05` — Add start UI inside the `Main` scene.
+- [ ] `M5-T06` — Display the game title on the start screen.
+- [ ] `M5-T07` — Display a start prompt on the start screen.
+- [ ] `M5-T08` — Display a controls hint on the start screen.
+- [ ] `M5-T09` — Create the `HUD` scene.
+- [ ] `M5-T10` — Display player lives in the HUD.
+- [ ] `M5-T11` — Display current wave number in the HUD.
+- [ ] `M5-T12` — Update HUD when player lives change.
+- [ ] `M5-T13` — Update HUD when the current wave changes.
+- [ ] `M5-T14` — Create the `ResultPanel` scene.
+- [ ] `M5-T15` — Show "You Win" when all waves are cleared.
+- [ ] `M5-T16` — Show "Game Over" when player lives reach 0.
+- [ ] `M5-T17` — Add a new game option to the result screen.
+- [ ] `M5-T18` — Emit `restart_requested` from `ResultPanel`.
+- [ ] `M5-T19` — Implement `Main.reset_game()`.
+- [ ] `M5-T20` — Clear enemies and projectiles during reset.
+- [ ] `M5-T21` — Reset player position, lives, and invulnerability during reset.
+- [ ] `M5-T22` — Reset wave progress during reset.
+- [ ] `M5-T23` — Start Wave 1 after reset.
+- [ ] `M5-T24` — Show and hide UI elements based on the current game state.
 
 Completion check:
 
@@ -225,31 +225,31 @@ Goal: Add MVP-level visual/audio feedback, finalize required MVP assets, and tun
 
 Tasks:
 
-- [ ] Finalize the MVP pixel art player ship sprite.
-- [ ] Finalize the MVP pixel art enemy ship sprite.
-- [ ] Finalize the MVP pixel art player projectile sprite.
-- [ ] Finalize the MVP pixel art enemy projectile sprite.
-- [ ] Finalize the basic enemy destruction effect.
-- [ ] Finalize the simple dark space background.
-- [ ] Add player projectile visual feedback.
-- [ ] Add enemy projectile visual feedback.
-- [ ] Add enemy destruction visual feedback.
-- [ ] Add player damage blink feedback.
-- [ ] Add visible temporary invulnerability feedback.
-- [ ] Add 8-bit/chiptune-style player fire sound.
-- [ ] Add 8-bit/chiptune-style enemy destruction sound.
-- [ ] Tune player acceleration.
-- [ ] Tune player deceleration.
-- [ ] Tune player maximum speed.
-- [ ] Tune weapon fire cooldown.
-- [ ] Tune projectile speeds.
-- [ ] Tune enemy movement speed.
-- [ ] Tune enemy horizontal oscillation amount.
-- [ ] Tune enemy fire intervals per wave.
-- [ ] Run manual playtests for average session length.
-- [ ] Run manual playtests for medium difficulty.
-- [ ] Run manual playtests for damage feedback clarity.
-- [ ] Run manual playtests for wave difficulty progression.
+- [ ] `M6-T01` — Finalize the MVP pixel art player ship sprite.
+- [ ] `M6-T02` — Finalize the MVP pixel art enemy ship sprite.
+- [ ] `M6-T03` — Finalize the MVP pixel art player projectile sprite.
+- [ ] `M6-T04` — Finalize the MVP pixel art enemy projectile sprite.
+- [ ] `M6-T05` — Finalize the basic enemy destruction effect.
+- [ ] `M6-T06` — Finalize the simple dark space background.
+- [ ] `M6-T07` — Add player projectile visual feedback.
+- [ ] `M6-T08` — Add enemy projectile visual feedback.
+- [ ] `M6-T09` — Add enemy destruction visual feedback.
+- [ ] `M6-T10` — Add player damage blink feedback.
+- [ ] `M6-T11` — Add visible temporary invulnerability feedback.
+- [ ] `M6-T12` — Add 8-bit/chiptune-style player fire sound.
+- [ ] `M6-T13` — Add 8-bit/chiptune-style enemy destruction sound.
+- [ ] `M6-T14` — Tune player acceleration.
+- [ ] `M6-T15` — Tune player deceleration.
+- [ ] `M6-T16` — Tune player maximum speed.
+- [ ] `M6-T17` — Tune weapon fire cooldown.
+- [ ] `M6-T18` — Tune projectile speeds.
+- [ ] `M6-T19` — Tune enemy movement speed.
+- [ ] `M6-T20` — Tune enemy horizontal oscillation amount.
+- [ ] `M6-T21` — Tune enemy fire intervals per wave.
+- [ ] `M6-T22` — Run manual playtests for average session length.
+- [ ] `M6-T23` — Run manual playtests for medium difficulty.
+- [ ] `M6-T24` — Run manual playtests for damage feedback clarity.
+- [ ] `M6-T25` — Run manual playtests for wave difficulty progression.
 
 Completion check:
 
@@ -266,29 +266,29 @@ Goal: Verify the MVP, prepare desktop exports, and publish the release through G
 
 Tasks:
 
-- [ ] Verify that the game starts from the start screen.
-- [ ] Verify that the player moves with WASD.
-- [ ] Verify that the player cannot leave the play area.
-- [ ] Verify that the player can hold Space to fire repeatedly.
-- [ ] Verify that player projectiles destroy enemies.
-- [ ] Verify that enemies move downward with slight horizontal oscillation.
-- [ ] Verify that enemies fire downward at fixed intervals.
-- [ ] Verify that enemy projectiles damage the player.
-- [ ] Verify that enemy ship contact damages the player.
-- [ ] Verify that temporary invulnerability prevents repeated instant damage.
-- [ ] Verify that waves progress from Wave 1 to Wave 3.
-- [ ] Verify that the win state appears after all 3 waves are cleared.
-- [ ] Verify that the game over state appears when player lives reach 0.
-- [ ] Verify that restart clears gameplay objects and starts a new game.
-- [ ] Verify that HUD updates lives and current wave correctly.
-- [ ] Fix blocking bugs found during manual testing.
-- [ ] Confirm the game opens correctly in Godot 4.x.
-- [ ] Create a Windows playable desktop export.
-- [ ] Create a macOS playable desktop export.
-- [ ] Verify exported builds can be launched.
-- [ ] Prepare a short GitHub Release note.
-- [ ] Publish build files through GitHub Releases.
-- [ ] Confirm release assets are downloadable.
+- [ ] `M7-T01` — Verify that the game starts from the start screen.
+- [ ] `M7-T02` — Verify that the player moves with WASD.
+- [ ] `M7-T03` — Verify that the player cannot leave the play area.
+- [ ] `M7-T04` — Verify that the player can hold Space to fire repeatedly.
+- [ ] `M7-T05` — Verify that player projectiles destroy enemies.
+- [ ] `M7-T06` — Verify that enemies move downward with slight horizontal oscillation.
+- [ ] `M7-T07` — Verify that enemies fire downward at fixed intervals.
+- [ ] `M7-T08` — Verify that enemy projectiles damage the player.
+- [ ] `M7-T09` — Verify that enemy ship contact damages the player.
+- [ ] `M7-T10` — Verify that temporary invulnerability prevents repeated instant damage.
+- [ ] `M7-T11` — Verify that waves progress from Wave 1 to Wave 3.
+- [ ] `M7-T12` — Verify that the win state appears after all 3 waves are cleared.
+- [ ] `M7-T13` — Verify that the game over state appears when player lives reach 0.
+- [ ] `M7-T14` — Verify that restart clears gameplay objects and starts a new game.
+- [ ] `M7-T15` — Verify that HUD updates lives and current wave correctly.
+- [ ] `M7-T16` — Fix blocking bugs found during manual testing.
+- [ ] `M7-T17` — Confirm the game opens correctly in Godot 4.x.
+- [ ] `M7-T18` — Create a Windows playable desktop export.
+- [ ] `M7-T19` — Create a macOS playable desktop export.
+- [ ] `M7-T20` — Verify exported builds can be launched.
+- [ ] `M7-T21` — Prepare a short GitHub Release note.
+- [ ] `M7-T22` — Publish build files through GitHub Releases.
+- [ ] `M7-T23` — Confirm release assets are downloadable.
 
 Completion check:
 
@@ -311,9 +311,28 @@ Milestone task lists should use checkboxes so implementation progress can be tra
 Checkbox format:
 
 ```markdown
-- [ ] Task not completed yet
-- [x] Task completed
+- [ ] `M<milestone-number>-T<two-digit-task-number>` — Task not completed yet
+- [x] `M<milestone-number>-T<two-digit-task-number>` — Task completed
 ```
+
+Task ID format:
+
+```text
+M<milestone-number>-T<two-digit-task-number>
+```
+
+Task ID rules:
+
+- Every implementation task must have a permanent Task ID.
+- Task IDs must match the milestone that contains the task.
+- Task numbering restarts at `T01` inside each milestone.
+- Task IDs must be unique across the full task plan.
+- Task IDs must not be reused for different tasks.
+- Task IDs must remain stable after assignment.
+- Completion check items must not receive Task IDs.
+- New implementation tasks must be added to this document before they are implemented.
+- When Git work is requested, branch and commit names should include the relevant Task ID.
+- Subtask IDs may use the `M1-T01-S01` format only when a task genuinely needs tracked subtasks.
 
 Only one milestone should be actively worked on at a time unless a later task is clearly independent and does not create rework.
 

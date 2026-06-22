@@ -46,7 +46,7 @@ Goal: Prepare the Godot project structure and basic project settings required fo
 
 Tasks:
 
-- [ ] `M1-T01` — Create the planned folder structure:
+- [x] `M1-T01` — Create the planned folder structure:
   - `res://assets/audio/`
   - `res://assets/sprites/`
   - `res://scenes/enemies/`
@@ -57,20 +57,20 @@ Tasks:
   - `res://scripts/player/`
   - `res://scripts/projectiles/`
   - `res://scripts/ui/`
-- [ ] `M1-T02` — Add short README or notes files where needed to explain folder purpose.
-- [ ] `M1-T03` — Configure Godot input action for move up.
-- [ ] `M1-T04` — Configure Godot input action for move down.
-- [ ] `M1-T05` — Configure Godot input action for move left.
-- [ ] `M1-T06` — Configure Godot input action for move right.
-- [ ] `M1-T07` — Configure Godot input action for fire.
-- [ ] `M1-T08` — Confirm that the project opens correctly in Godot 4.x.
-- [ ] `M1-T09` — Confirm that the repository remains clean after project setup files are saved.
+- [x] `M1-T02` — Add short README or notes files where needed to explain folder purpose.
+- [x] `M1-T03` — Configure Godot input action for move up.
+- [x] `M1-T04` — Configure Godot input action for move down.
+- [x] `M1-T05` — Configure Godot input action for move left.
+- [x] `M1-T06` — Configure Godot input action for move right.
+- [x] `M1-T07` — Configure Godot input action for fire.
+- [x] `M1-T08` — Confirm that the project opens correctly in Godot 4.x.
+- [x] `M1-T09` — Confirm that the repository remains clean after project setup files are saved.
 
 Completion check:
 
-- [ ] Folder structure exists.
-- [ ] Input actions are configured.
-- [ ] Project opens in Godot 4.x without setup errors.
+- [x] Folder structure exists.
+- [x] Input actions are configured.
+- [x] Project opens in Godot 4.x without setup errors.
 
 ## 5. Milestone 2: Player Vertical Slice
 

@@ -11,6 +11,7 @@ const MAX_SPAWN_ATTEMPTS := 12
 @export var wave_2_data: WaveData = preload("res://resources/waves/wave_2.tres")
 @export var wave_3_data: WaveData = preload("res://resources/waves/wave_3.tres")
 @export var minimum_spawn_distance: float = 72.0
+@export var auto_start: bool = true
 
 var current_wave_data: WaveData
 var current_wave_index: int = -1
@@ -25,7 +26,8 @@ var _all_waves_cleared_emitted: bool = false
 
 func _ready() -> void:
 	_random_number_generator.randomize()
-	start_wave(0)
+	if auto_start:
+		start_wave(0)
 
 
 func start_wave(wave_index: int) -> bool:

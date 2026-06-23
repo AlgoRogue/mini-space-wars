@@ -195,11 +195,11 @@ Tasks:
 - [x] `M5-T06` — Display the game title on the start screen.
 - [x] `M5-T07` — Display a start prompt on the start screen.
 - [x] `M5-T08` — Display a controls hint on the start screen.
-- [ ] `M5-T09` — Create the `HUD` scene.
-- [ ] `M5-T10` — Display player lives in the HUD.
-- [ ] `M5-T11` — Display current wave number in the HUD.
-- [ ] `M5-T12` — Update HUD when player lives change.
-- [ ] `M5-T13` — Update HUD when the current wave changes.
+- [x] `M5-T09` — Create the `HUD` scene.
+- [x] `M5-T10` — Display player lives in the HUD.
+- [x] `M5-T11` — Display current wave number in the HUD.
+- [x] `M5-T12` — Update HUD when player lives change.
+- [x] `M5-T13` — Update HUD when the current wave changes.
 - [ ] `M5-T14` — Create the `ResultPanel` scene.
 - [ ] `M5-T15` — Show "You Win" when all waves are cleared.
 - [ ] `M5-T16` — Show "Game Over" when player lives reach 0.

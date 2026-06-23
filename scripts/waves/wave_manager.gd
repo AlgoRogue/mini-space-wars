@@ -1,6 +1,9 @@
 extends Node2D
 class_name WaveManager
 
+signal wave_started(wave_number: int)
+signal all_waves_cleared
+
 const MAX_SPAWN_ATTEMPTS := 12
 
 @export var enemy_scene: PackedScene = preload("res://scenes/enemies/Enemy.tscn")
@@ -10,14 +13,19 @@ const MAX_SPAWN_ATTEMPTS := 12
 @export var minimum_spawn_distance: float = 72.0
 
 var current_wave_data: WaveData
+var current_wave_index: int = -1
+var remaining_enemy_count: int = 0
 
 var _random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
 var _spawned_enemies: Array[Enemy] = []
 var _spawned_positions: Array[Vector2] = []
+var _destroyed_enemy_instance_ids: Array[int] = []
+var _all_waves_cleared_emitted: bool = false
 
 
 func _ready() -> void:
 	_random_number_generator.randomize()
+	start_wave(0)
 
 
 func start_wave(wave_index: int) -> bool:
@@ -26,11 +34,18 @@ func start_wave(wave_index: int) -> bool:
 		return false
 
 	current_wave_data = wave_data
+	current_wave_index = wave_index
+	remaining_enemy_count = wave_data.enemy_count
+	_destroyed_enemy_instance_ids.clear()
+	if wave_index == 0:
+		_all_waves_cleared_emitted = false
 	_clear_spawned_enemies()
 
 	for enemy_index: int in range(wave_data.enemy_count):
 		_spawn_enemy(wave_data)
 
+	print("Wave started: %d" % wave_data.wave_number)
+	wave_started.emit(wave_data.wave_number)
 	return true
 
 
@@ -56,6 +71,7 @@ func _spawn_enemy(wave_data: WaveData) -> void:
 
 	enemy.position = _get_spawn_position(wave_data.spawn_area_limits)
 	_configure_enemy_weapon(enemy, wave_data.enemy_fire_interval)
+	enemy.enemy_destroyed.connect(_on_enemy_destroyed.bind(enemy))
 	add_child(enemy)
 	_spawned_enemies.append(enemy)
 	_spawned_positions.append(enemy.position)
@@ -110,8 +126,50 @@ func _get_closest_spawn_distance(spawn_position: Vector2) -> float:
 func _clear_spawned_enemies() -> void:
 	for enemy: Enemy in _spawned_enemies:
 		if is_instance_valid(enemy):
-			remove_child(enemy)
+			if enemy.get_parent() == self:
+				remove_child(enemy)
 			enemy.queue_free()
 
 	_spawned_enemies.clear()
 	_spawned_positions.clear()
+
+
+func _on_enemy_destroyed(enemy: Enemy) -> void:
+	if enemy == null:
+		return
+
+	var enemy_instance_id: int = enemy.get_instance_id()
+	if _destroyed_enemy_instance_ids.has(enemy_instance_id):
+		return
+
+	_destroyed_enemy_instance_ids.append(enemy_instance_id)
+	_spawned_enemies.erase(enemy)
+	if enemy.get_parent() == self:
+		remove_child(enemy)
+
+	remaining_enemy_count = max(remaining_enemy_count - 1, 0)
+	print("Enemy destroyed: %d remaining" % remaining_enemy_count)
+
+	if remaining_enemy_count == 0:
+		_complete_current_wave()
+
+
+func _complete_current_wave() -> void:
+	if current_wave_index < _get_wave_count() - 1:
+		call_deferred("_start_next_wave", current_wave_index + 1)
+		return
+
+	if _all_waves_cleared_emitted:
+		return
+
+	_all_waves_cleared_emitted = true
+	print("All waves cleared")
+	all_waves_cleared.emit()
+
+
+func _start_next_wave(wave_index: int) -> void:
+	start_wave(wave_index)
+
+
+func _get_wave_count() -> int:
+	return 3

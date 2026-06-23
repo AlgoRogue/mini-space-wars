@@ -6,8 +6,8 @@
 |---|---|
 | Document Name | Mini Space Wars Implementation Task Plan |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.2 |
-| Date | June 22, 2026 |
+| Version | v1.3 |
+| Date | June 23, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
 | Document Status | Approved |
@@ -164,21 +164,22 @@ Tasks:
 - [x] `M4-T14` — Load the 3 fixed wave resources.
 - [x] `M4-T15` — Spawn enemies for the current wave.
 - [x] `M4-T16` — Spawn enemies at random positions within configured spawn area limits.
-- [ ] `M4-T17` — Track enemy destroyed events.
-- [ ] `M4-T18` — Start the next wave immediately after the current wave is cleared.
-- [ ] `M4-T19` — Emit an all-waves-cleared event after Wave 3 is completed.
-- [ ] `M4-T20` — Add simple debug logs for wave started.
-- [ ] `M4-T21` — Add simple debug logs for enemy destroyed.
-- [ ] `M4-T22` — Add simple debug logs for all waves cleared.
+- [x] `M4-T17` — Track enemy destroyed events.
+- [x] `M4-T18` — Start the next wave immediately after the current wave is cleared.
+- [x] `M4-T19` — Emit an all-waves-cleared event after Wave 3 is completed.
+- [x] `M4-T20` — Add simple debug logs for wave started.
+- [x] `M4-T21` — Add simple debug logs for enemy destroyed.
+- [x] `M4-T22` — Add simple debug logs for all waves cleared.
+- [x] `M4-T23` — Fix wave transition physics flush and enemy ship contact damage.
 
 Completion check:
 
-- [ ] Wave 1 starts with 3 enemies.
-- [ ] Wave 2 starts after Wave 1 is cleared.
-- [ ] Wave 3 starts after Wave 2 is cleared.
-- [ ] Wave 3 completion emits all-waves-cleared.
-- [ ] Enemy fire interval changes by wave.
-- [ ] Spawn positions stay inside configured spawn area limits.
+- [x] Wave 1 starts with 3 enemies.
+- [x] Wave 2 starts after Wave 1 is cleared.
+- [x] Wave 3 starts after Wave 2 is cleared.
+- [x] Wave 3 completion emits all-waves-cleared.
+- [x] Enemy fire interval changes by wave.
+- [x] Spawn positions stay inside configured spawn area limits.
 
 ## 8. Milestone 5: UI and Game States
 

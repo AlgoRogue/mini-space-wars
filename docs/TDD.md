@@ -6,8 +6,8 @@
 |---|---|
 | Document Name | Mini Space Wars TDD |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.0 |
-| Date | June 21, 2026 |
+| Version | v1.1 |
+| Date | June 23, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
 | Document Status | Approved |
@@ -239,7 +239,7 @@ Player damage flow from enemy ship contact:
 1. `Player` or `Enemy` detects contact between the player ship and an enemy ship.
 2. `Player` checks whether temporary invulnerability is active.
 3. If invulnerability is inactive, `Player` loses 1 life and emits a damage event.
-4. The enemy ship remains active unless destroyed by a player projectile.
+4. The enemy ship is destroyed after player ship contact because the MVP enemy has one hit point.
 
 Exact collision layer and mask numbers will be decided during implementation.
 

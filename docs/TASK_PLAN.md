@@ -160,10 +160,10 @@ Tasks:
 - [x] `M4-T10` — Set Wave 2 to 5 enemies.
 - [x] `M4-T11` — Set Wave 3 to 7 enemies.
 - [x] `M4-T12` — Configure enemy fire interval to increase difficulty from wave to wave.
-- [ ] `M4-T13` — Create the `WaveManager` script.
-- [ ] `M4-T14` — Load the 3 fixed wave resources.
-- [ ] `M4-T15` — Spawn enemies for the current wave.
-- [ ] `M4-T16` — Spawn enemies at random positions within configured spawn area limits.
+- [x] `M4-T13` — Create the `WaveManager` script.
+- [x] `M4-T14` — Load the 3 fixed wave resources.
+- [x] `M4-T15` — Spawn enemies for the current wave.
+- [x] `M4-T16` — Spawn enemies at random positions within configured spawn area limits.
 - [ ] `M4-T17` — Track enemy destroyed events.
 - [ ] `M4-T18` — Start the next wave immediately after the current wave is cleared.
 - [ ] `M4-T19` — Emit an all-waves-cleared event after Wave 3 is completed.

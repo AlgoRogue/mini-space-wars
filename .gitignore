@@ -19,3 +19,6 @@ mono_crash.*.json
 
 builds/
 export_credentials.cfg
+
+# macOS
+.DS_Store

@@ -148,18 +148,18 @@ Goal: Implement the 3 fixed enemy waves using Godot Resource-based wave data.
 
 Tasks:
 
-- [ ] `M4-T01` — Create the wave data Resource script.
-- [ ] `M4-T02` — Create the Wave 1 Resource file.
-- [ ] `M4-T03` — Create the Wave 2 Resource file.
-- [ ] `M4-T04` — Create the Wave 3 Resource file.
-- [ ] `M4-T05` — Configure wave number data.
-- [ ] `M4-T06` — Configure enemy count data.
-- [ ] `M4-T07` — Configure enemy fire interval data.
-- [ ] `M4-T08` — Configure spawn area limit data.
-- [ ] `M4-T09` — Set Wave 1 to 3 enemies.
-- [ ] `M4-T10` — Set Wave 2 to 5 enemies.
-- [ ] `M4-T11` — Set Wave 3 to 7 enemies.
-- [ ] `M4-T12` — Configure enemy fire interval to increase difficulty from wave to wave.
+- [x] `M4-T01` — Create the wave data Resource script.
+- [x] `M4-T02` — Create the Wave 1 Resource file.
+- [x] `M4-T03` — Create the Wave 2 Resource file.
+- [x] `M4-T04` — Create the Wave 3 Resource file.
+- [x] `M4-T05` — Configure wave number data.
+- [x] `M4-T06` — Configure enemy count data.
+- [x] `M4-T07` — Configure enemy fire interval data.
+- [x] `M4-T08` — Configure spawn area limit data.
+- [x] `M4-T09` — Set Wave 1 to 3 enemies.
+- [x] `M4-T10` — Set Wave 2 to 5 enemies.
+- [x] `M4-T11` — Set Wave 3 to 7 enemies.
+- [x] `M4-T12` — Configure enemy fire interval to increase difficulty from wave to wave.
 - [ ] `M4-T13` — Create the `WaveManager` script.
 - [ ] `M4-T14` — Load the 3 fixed wave resources.
 - [ ] `M4-T15` — Spawn enemies for the current wave.

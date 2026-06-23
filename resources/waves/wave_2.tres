@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/waves/wave_data.gd" id="1_wave_data"]
+
+[resource]
+script = ExtResource("1_wave_data")
+wave_number = 2
+enemy_count = 5
+enemy_fire_interval = 1.8
+spawn_area_limits = Rect2(48, 48, 1184, 144)

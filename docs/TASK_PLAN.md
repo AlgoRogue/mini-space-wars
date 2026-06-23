@@ -200,11 +200,11 @@ Tasks:
 - [x] `M5-T11` — Display current wave number in the HUD.
 - [x] `M5-T12` — Update HUD when player lives change.
 - [x] `M5-T13` — Update HUD when the current wave changes.
-- [ ] `M5-T14` — Create the `ResultPanel` scene.
-- [ ] `M5-T15` — Show "You Win" when all waves are cleared.
-- [ ] `M5-T16` — Show "Game Over" when player lives reach 0.
-- [ ] `M5-T17` — Add a new game option to the result screen.
-- [ ] `M5-T18` — Emit `restart_requested` from `ResultPanel`.
+- [x] `M5-T14` — Create the `ResultPanel` scene.
+- [x] `M5-T15` — Show "You Win" when all waves are cleared.
+- [x] `M5-T16` — Show "Game Over" when player lives reach 0.
+- [x] `M5-T17` — Add a new game option to the result screen.
+- [x] `M5-T18` — Emit `restart_requested` from `ResultPanel`.
 - [ ] `M5-T19` — Implement `Main.reset_game()`.
 - [ ] `M5-T20` — Clear enemies and projectiles during reset.
 - [ ] `M5-T21` — Reset player position, lives, and invulnerability during reset.

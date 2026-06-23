@@ -17,6 +17,7 @@ var current_state: GameState = GameState.START
 @onready var wave_manager: WaveManager = $GameplayRoot/WaveManager
 @onready var start_ui: Control = $UI/StartUI
 @onready var hud: HUD = $UI/HUD
+@onready var result_panel: ResultPanel = $UI/ResultPanel
 @onready var start_button: Button = $UI/StartUI/Content/StartButton
 
 
@@ -25,6 +26,7 @@ func _ready() -> void:
 		start_button.pressed.connect(_on_start_button_pressed)
 
 	_connect_hud_signals()
+	_connect_result_signals()
 	_update_hud_values()
 	set_game_state(GameState.START)
 
@@ -59,6 +61,7 @@ func set_game_state(next_state: GameState) -> void:
 func _enter_start_state() -> void:
 	start_ui.visible = true
 	hud.visible = false
+	result_panel.visible = false
 	gameplay_root.visible = false
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
 	start_button.grab_focus()
@@ -67,6 +70,7 @@ func _enter_start_state() -> void:
 func _enter_playing_state() -> void:
 	start_ui.visible = false
 	hud.visible = true
+	result_panel.visible = false
 	gameplay_root.visible = true
 	gameplay_root.process_mode = Node.PROCESS_MODE_INHERIT
 	if wave_manager.current_wave_data == null:
@@ -78,6 +82,8 @@ func _enter_playing_state() -> void:
 func _enter_win_state() -> void:
 	start_ui.visible = false
 	hud.visible = false
+	result_panel.visible = true
+	result_panel.show_result("You Win")
 	gameplay_root.visible = false
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -85,6 +91,8 @@ func _enter_win_state() -> void:
 func _enter_game_over_state() -> void:
 	start_ui.visible = false
 	hud.visible = false
+	result_panel.visible = true
+	result_panel.show_result("Game Over")
 	gameplay_root.visible = false
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -95,6 +103,14 @@ func _connect_hud_signals() -> void:
 
 	if not wave_manager.wave_started.is_connected(hud.set_wave):
 		wave_manager.wave_started.connect(hud.set_wave)
+
+
+func _connect_result_signals() -> void:
+	if not player.player_dead.is_connected(_on_player_dead):
+		player.player_dead.connect(_on_player_dead)
+
+	if not wave_manager.all_waves_cleared.is_connected(_on_all_waves_cleared):
+		wave_manager.all_waves_cleared.connect(_on_all_waves_cleared)
 
 
 func _update_hud_values() -> void:
@@ -114,3 +130,17 @@ func _on_start_button_pressed() -> void:
 		return
 
 	start_game()
+
+
+func _on_player_dead() -> void:
+	if current_state != GameState.PLAYING:
+		return
+
+	set_game_state(GameState.GAME_OVER)
+
+
+func _on_all_waves_cleared() -> void:
+	if current_state != GameState.PLAYING:
+		return
+
+	set_game_state(GameState.WIN)

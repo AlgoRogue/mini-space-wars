@@ -3,6 +3,7 @@ class_name WaveManager
 
 signal wave_started(wave_number: int)
 signal all_waves_cleared
+signal enemy_escaped
 
 const MAX_SPAWN_ATTEMPTS := 12
 
@@ -22,6 +23,7 @@ var _spawned_enemies: Array[Enemy] = []
 var _spawned_positions: Array[Vector2] = []
 var _removed_enemy_instance_ids: Array[int] = []
 var _all_waves_cleared_emitted: bool = false
+var _carryover_enemy_count: int = 0
 
 
 func _ready() -> void:
@@ -37,13 +39,17 @@ func start_wave(wave_index: int) -> bool:
 
 	current_wave_data = wave_data
 	current_wave_index = wave_index
-	remaining_enemy_count = wave_data.enemy_count
 	_removed_enemy_instance_ids.clear()
 	if wave_index == 0:
 		_all_waves_cleared_emitted = false
+		_carryover_enemy_count = 0
 	clear_active_enemies()
 
-	for enemy_index: int in range(wave_data.enemy_count):
+	var enemy_count_to_spawn: int = wave_data.enemy_count + _carryover_enemy_count
+	remaining_enemy_count = enemy_count_to_spawn
+	_carryover_enemy_count = 0
+
+	for enemy_index: int in range(enemy_count_to_spawn):
 		_spawn_enemy(wave_data)
 
 	print("Wave started: %d" % wave_data.wave_number)
@@ -133,6 +139,7 @@ func reset_progress() -> void:
 	remaining_enemy_count = 0
 	_removed_enemy_instance_ids.clear()
 	_all_waves_cleared_emitted = false
+	_carryover_enemy_count = 0
 
 
 func clear_active_enemies() -> void:
@@ -160,27 +167,44 @@ func _on_enemy_destroyed(enemy: Enemy) -> void:
 
 
 func _on_enemy_escaped(enemy: Enemy) -> void:
-	_remove_enemy_from_current_wave(enemy, "Enemy escaped")
-
-
-func _remove_enemy_from_current_wave(enemy: Enemy, log_message: String) -> void:
-	if enemy == null:
+	if _is_final_wave():
+		if _remove_enemy_from_tracking(enemy):
+			remaining_enemy_count = max(remaining_enemy_count - 1, 0)
+			print("Enemy escaped on final wave")
+			enemy_escaped.emit()
 		return
 
-	var enemy_instance_id: int = enemy.get_instance_id()
-	if _removed_enemy_instance_ids.has(enemy_instance_id):
-		return
+	if _remove_enemy_from_current_wave(enemy, "Enemy escaped; carried over"):
+		_carryover_enemy_count += 1
 
-	_removed_enemy_instance_ids.append(enemy_instance_id)
-	_spawned_enemies.erase(enemy)
-	if enemy.get_parent() == self:
-		remove_child(enemy)
+
+func _remove_enemy_from_current_wave(enemy: Enemy, log_message: String) -> bool:
+	if not _remove_enemy_from_tracking(enemy):
+		return false
 
 	remaining_enemy_count = max(remaining_enemy_count - 1, 0)
 	print("%s: %d remaining" % [log_message, remaining_enemy_count])
 
 	if remaining_enemy_count == 0:
 		_complete_current_wave()
+
+	return true
+
+
+func _remove_enemy_from_tracking(enemy: Enemy) -> bool:
+	if enemy == null:
+		return false
+
+	var enemy_instance_id: int = enemy.get_instance_id()
+	if _removed_enemy_instance_ids.has(enemy_instance_id):
+		return false
+
+	_removed_enemy_instance_ids.append(enemy_instance_id)
+	_spawned_enemies.erase(enemy)
+	if enemy.get_parent() == self:
+		remove_child(enemy)
+
+	return true
 
 
 func _complete_current_wave() -> void:
@@ -202,3 +226,7 @@ func _start_next_wave(wave_index: int) -> void:
 
 func _get_wave_count() -> int:
 	return 3
+
+
+func _is_final_wave() -> bool:
+	return current_wave_index >= _get_wave_count() - 1

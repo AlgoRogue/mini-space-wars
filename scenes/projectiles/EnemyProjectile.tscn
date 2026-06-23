@@ -10,6 +10,7 @@ size = Vector2(12, 24)
 collision_layer = 8
 collision_mask = 1
 script = ExtResource("1_projectile")
+speed = 320.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

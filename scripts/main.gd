@@ -123,6 +123,9 @@ func _connect_result_signals() -> void:
 	if not wave_manager.all_waves_cleared.is_connected(_on_all_waves_cleared):
 		wave_manager.all_waves_cleared.connect(_on_all_waves_cleared)
 
+	if not wave_manager.enemy_escaped.is_connected(_on_enemy_escaped):
+		wave_manager.enemy_escaped.connect(_on_enemy_escaped)
+
 	if not result_panel.restart_requested.is_connected(reset_game):
 		result_panel.restart_requested.connect(reset_game)
 
@@ -184,3 +187,10 @@ func _on_all_waves_cleared() -> void:
 		return
 
 	set_game_state(GameState.WIN)
+
+
+func _on_enemy_escaped() -> void:
+	if current_state != GameState.PLAYING:
+		return
+
+	set_game_state(GameState.GAME_OVER)

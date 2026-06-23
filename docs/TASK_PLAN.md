@@ -271,26 +271,27 @@ Goal: Verify the MVP, prepare desktop exports, and publish the release through G
 
 Tasks:
 
-- [ ] `M7-T01` — Verify that the game starts from the start screen.
-- [ ] `M7-T02` — Verify that the player moves with WASD.
-- [ ] `M7-T03` — Verify that the player cannot leave the play area.
-- [ ] `M7-T04` — Verify that the player can hold Space to fire repeatedly.
-- [ ] `M7-T05` — Verify that player projectiles destroy enemies.
-- [ ] `M7-T06` — Verify that enemies move downward with slight horizontal oscillation.
-- [ ] `M7-T07` — Verify that enemies fire downward at fixed intervals.
-- [ ] `M7-T08` — Verify that enemy projectiles damage the player.
-- [ ] `M7-T09` — Verify that enemy ship contact damages the player.
-- [ ] `M7-T10` — Verify that temporary invulnerability prevents repeated instant damage.
-- [ ] `M7-T11` — Verify that waves progress from Wave 1 to Wave 3.
-- [ ] `M7-T12` — Verify that the win state appears after all 3 waves are cleared.
-- [ ] `M7-T13` — Verify that the game over state appears when player lives reach 0.
-- [ ] `M7-T14` — Verify that restart clears gameplay objects and starts a new game.
-- [ ] `M7-T15` — Verify that HUD updates lives and current wave correctly.
-- [ ] `M7-T16` — Fix blocking bugs found during manual testing.
-- [ ] `M7-T17` — Confirm the game opens correctly in Godot 4.x.
-- [ ] `M7-T18` — Create a Windows playable desktop export.
-- [ ] `M7-T19` — Create a macOS playable desktop export.
-- [ ] `M7-T20` — Verify exported builds can be launched.
+- [x] `M7-T01` — Verify that the game starts from the start screen.
+- [x] `M7-T02` — Verify that the player moves with WASD.
+- [x] `M7-T03` — Verify that the player cannot leave the play area.
+- [x] `M7-T04` — Verify that the player can hold Space to fire repeatedly.
+- [x] `M7-T05` — Verify that player projectiles destroy enemies.
+- [x] `M7-T06` — Verify that enemies move downward with slight horizontal oscillation.
+- [x] `M7-T07` — Verify that enemies fire downward at fixed intervals.
+- [x] `M7-T08` — Verify that enemy projectiles damage the player.
+- [x] `M7-T09` — Verify that enemy ship contact damages the player.
+- [x] `M7-T10` — Verify that temporary invulnerability prevents repeated instant damage.
+- [x] `M7-T11` — Verify that waves progress from Wave 1 to Wave 3.
+- [x] `M7-T12` — Verify that the win state appears after all 3 waves are cleared.
+- [x] `M7-T13` — Verify that the game over state appears when player lives reach 0.
+- [x] `M7-T14` — Verify that restart clears gameplay objects and starts a new game.
+- [x] `M7-T15` — Verify that HUD updates lives and current wave correctly.
+- [x] `M7-T16` — Fix blocking bugs found during manual testing.
+- [x] `M7-T17` — Confirm the game opens correctly in Godot 4.x.
+- [x] `M7-T18A`— Create and configure application icons for Windows and macOS exports
+- [x] `M7-T18` — Create a Windows playable desktop export.
+- [x] `M7-T19` — Create a macOS playable desktop export.
+- [x] `M7-T20` — Verify exported builds can be launched.
 - [ ] `M7-T21` — Prepare a short GitHub Release note.
 - [ ] `M7-T22` — Publish build files through GitHub Releases.
 - [ ] `M7-T23` — Confirm release assets are downloadable.

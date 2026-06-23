@@ -6,5 +6,5 @@
 script = ExtResource("1_wave_data")
 wave_number = 3
 enemy_count = 7
-enemy_fire_interval = 1.4
+enemy_fire_interval = 1.65
 spawn_area_limits = Rect2(48, 48, 1184, 144)

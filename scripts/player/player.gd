@@ -1,6 +1,9 @@
 extends Area2D
 class_name Player
 
+signal player_damaged(remaining_lives: int)
+signal player_dead
+
 @export var max_speed: float = 320.0
 @export var acceleration: float = 1800.0
 @export var deceleration: float = 2200.0
@@ -10,6 +13,7 @@ class_name Player
 var velocity: Vector2 = Vector2.ZERO
 var current_lives: int = 0
 var _invulnerability_remaining: float = 0.0
+var _is_dead: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var weapon: Weapon = $Weapon
@@ -35,6 +39,12 @@ func apply_damage(amount: int = 1) -> bool:
 
 	current_lives = maxi(current_lives - amount, 0)
 	_invulnerability_remaining = invulnerability_duration
+	player_damaged.emit(current_lives)
+
+	if current_lives == 0 and not _is_dead:
+		_is_dead = true
+		player_dead.emit()
+
 	return true
 
 

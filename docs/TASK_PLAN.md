@@ -128,19 +128,19 @@ Tasks:
 - [x] `M3-T18` — Add player life tracking with 3 lives.
 - [x] `M3-T19` — Add 1.5-second temporary invulnerability after player damage.
 - [x] `M3-T20` — Prevent repeated instant damage during invulnerability.
-- [ ] `M3-T21` — Emit or log player damaged events.
-- [ ] `M3-T22` — Emit or log player dead events.
-- [ ] `M3-T23` — Emit or log enemy destroyed events.
+- [x] `M3-T21` — Emit or log player damaged events.
+- [x] `M3-T22` — Emit or log player dead events.
+- [x] `M3-T23` — Emit or log enemy destroyed events.
 
 Completion check:
 
-- [ ] Enemy is visible and moves downward with slight horizontal oscillation.
-- [ ] Enemy fires downward projectiles.
-- [ ] Player projectiles destroy enemies in one hit.
-- [ ] Enemy projectiles reduce player lives.
-- [ ] Enemy ship contact reduces player lives.
-- [ ] Temporary invulnerability prevents repeated instant damage.
-- [ ] Player death can be detected when lives reach 0.
+- [x] Enemy is visible and moves downward with slight horizontal oscillation.
+- [x] Enemy fires downward projectiles.
+- [x] Player projectiles destroy enemies in one hit.
+- [x] Enemy projectiles reduce player lives.
+- [x] Enemy ship contact reduces player lives.
+- [x] Temporary invulnerability prevents repeated instant damage.
+- [x] Player death can be detected when lives reach 0.
 
 ## 7. Milestone 4: Wave System
 

@@ -119,10 +119,10 @@ Tasks:
 - [x] `M3-T09` — Implement fixed-interval enemy firing.
 - [x] `M3-T10` — Move enemy projectiles downward.
 - [x] `M3-T11` — Remove enemy projectiles after they leave the play area.
-- [ ] `M3-T12` — Implement `Area2D`-based hit detection for projectiles and ships.
-- [ ] `M3-T13` — Implement player projectile hitting enemy.
-- [ ] `M3-T14` — Destroy enemy in one hit from player projectile.
-- [ ] `M3-T15` — Remove player projectile after enemy hit.
+- [x] `M3-T12` — Implement `Area2D`-based hit detection for projectiles and ships.
+- [x] `M3-T13` — Implement player projectile hitting enemy.
+- [x] `M3-T14` — Destroy enemy in one hit from player projectile.
+- [x] `M3-T15` — Remove player projectile after enemy hit.
 - [ ] `M3-T16` — Implement enemy projectile damaging player.
 - [ ] `M3-T17` — Implement enemy ship contact damaging player.
 - [ ] `M3-T18` — Add player life tracking with 3 lives.

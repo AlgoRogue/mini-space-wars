@@ -292,17 +292,17 @@ Tasks:
 - [x] `M7-T18` — Create a Windows playable desktop export.
 - [x] `M7-T19` — Create a macOS playable desktop export.
 - [x] `M7-T20` — Verify exported builds can be launched.
-- [ ] `M7-T21` — Prepare a short GitHub Release note.
-- [ ] `M7-T22` — Publish build files through GitHub Releases.
-- [ ] `M7-T23` — Confirm release assets are downloadable.
+- [x] `M7-T21` — Prepare a short GitHub Release note.
+- [x] `M7-T22` — Publish build files through GitHub Releases.
+- [x] `M7-T23` — Confirm release assets are downloadable.
 
 Completion check:
 
-- [ ] Manual test checklist passes.
-- [ ] Windows export is prepared.
-- [ ] macOS export is prepared.
-- [ ] Release note is prepared.
-- [ ] GitHub Release includes downloadable build files.
+- [x] Manual test checklist passes.
+- [x] Windows export is prepared.
+- [x] macOS export is prepared.
+- [x] Release note is prepared.
+- [x] GitHub Release includes downloadable build files.
 
 ## 11. Task Tracking Rules
 

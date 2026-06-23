@@ -14,6 +14,7 @@ var _is_destroyed: bool = false
 
 func _ready() -> void:
 	_base_x_position = position.x
+	area_entered.connect(_on_area_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -29,3 +30,11 @@ func destroy() -> void:
 	_is_destroyed = true
 	enemy_destroyed.emit()
 	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	var player: Player = area as Player
+	if player == null:
+		return
+
+	player.apply_damage()

@@ -123,11 +123,11 @@ Tasks:
 - [x] `M3-T13` — Implement player projectile hitting enemy.
 - [x] `M3-T14` — Destroy enemy in one hit from player projectile.
 - [x] `M3-T15` — Remove player projectile after enemy hit.
-- [ ] `M3-T16` — Implement enemy projectile damaging player.
-- [ ] `M3-T17` — Implement enemy ship contact damaging player.
-- [ ] `M3-T18` — Add player life tracking with 3 lives.
-- [ ] `M3-T19` — Add 1.5-second temporary invulnerability after player damage.
-- [ ] `M3-T20` — Prevent repeated instant damage during invulnerability.
+- [x] `M3-T16` — Implement enemy projectile damaging player.
+- [x] `M3-T17` — Implement enemy ship contact damaging player.
+- [x] `M3-T18` — Add player life tracking with 3 lives.
+- [x] `M3-T19` — Add 1.5-second temporary invulnerability after player damage.
+- [x] `M3-T20` — Prevent repeated instant damage during invulnerability.
 - [ ] `M3-T21` — Emit or log player damaged events.
 - [ ] `M3-T22` — Emit or log player dead events.
 - [ ] `M3-T23` — Emit or log enemy destroyed events.

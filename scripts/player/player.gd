@@ -4,20 +4,49 @@ class_name Player
 @export var max_speed: float = 320.0
 @export var acceleration: float = 1800.0
 @export var deceleration: float = 2200.0
+@export var starting_lives: int = 3
+@export var invulnerability_duration: float = 1.5
 
 var velocity: Vector2 = Vector2.ZERO
+var current_lives: int = 0
+var _invulnerability_remaining: float = 0.0
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var weapon: Weapon = $Weapon
 @onready var projectile_spawn_point: Marker2D = $ProjectileSpawnPoint
 
 
+func _ready() -> void:
+	current_lives = starting_lives
+
+
 func _physics_process(delta: float) -> void:
+	_update_invulnerability(delta)
 	var input_direction: Vector2 = _get_input_direction()
 	_update_velocity(input_direction, delta)
 	position += velocity * delta
 	_clamp_to_viewport()
 	_handle_fire_input()
+
+
+func apply_damage(amount: int = 1) -> bool:
+	if amount <= 0 or is_invulnerable() or current_lives <= 0:
+		return false
+
+	current_lives = maxi(current_lives - amount, 0)
+	_invulnerability_remaining = invulnerability_duration
+	return true
+
+
+func is_invulnerable() -> bool:
+	return _invulnerability_remaining > 0.0
+
+
+func _update_invulnerability(delta: float) -> void:
+	if _invulnerability_remaining <= 0.0:
+		return
+
+	_invulnerability_remaining = maxf(_invulnerability_remaining - delta, 0.0)
 
 
 func _get_input_direction() -> Vector2:

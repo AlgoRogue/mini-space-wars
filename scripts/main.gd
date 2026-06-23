@@ -11,6 +11,7 @@ enum GameState {
 }
 
 var current_state: GameState = GameState.START
+var _player_start_position: Vector2 = Vector2.ZERO
 
 @onready var gameplay_root: Node2D = $GameplayRoot
 @onready var player: Player = $GameplayRoot/Player
@@ -22,6 +23,8 @@ var current_state: GameState = GameState.START
 
 
 func _ready() -> void:
+	_player_start_position = player.position
+
 	if not start_button.pressed.is_connected(_on_start_button_pressed):
 		start_button.pressed.connect(_on_start_button_pressed)
 
@@ -41,7 +44,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func start_game() -> void:
+	reset_game()
+
+
+func reset_game() -> void:
+	_clear_active_enemies()
+	_clear_projectiles()
+	player.reset_for_new_game(_player_start_position)
+	wave_manager.reset_progress()
 	set_game_state(GameState.PLAYING)
+	_update_hud_values()
+	wave_manager.start_wave(0)
 
 
 func set_game_state(next_state: GameState) -> void:
@@ -73,8 +86,6 @@ func _enter_playing_state() -> void:
 	result_panel.visible = false
 	gameplay_root.visible = true
 	gameplay_root.process_mode = Node.PROCESS_MODE_INHERIT
-	if wave_manager.current_wave_data == null:
-		wave_manager.start_wave(0)
 	_update_hud_values()
 	game_started.emit()
 
@@ -112,6 +123,9 @@ func _connect_result_signals() -> void:
 	if not wave_manager.all_waves_cleared.is_connected(_on_all_waves_cleared):
 		wave_manager.all_waves_cleared.connect(_on_all_waves_cleared)
 
+	if not result_panel.restart_requested.is_connected(reset_game):
+		result_panel.restart_requested.connect(reset_game)
+
 
 func _update_hud_values() -> void:
 	hud.set_lives(player.current_lives)
@@ -123,6 +137,27 @@ func _get_current_wave_number() -> int:
 		return wave_manager.current_wave_data.wave_number
 
 	return 1
+
+
+func _clear_active_enemies() -> void:
+	wave_manager.clear_active_enemies()
+
+
+func _clear_projectiles() -> void:
+	_clear_projectiles_from_node(gameplay_root)
+
+
+func _clear_projectiles_from_node(parent: Node) -> void:
+	for child: Node in parent.get_children():
+		_clear_projectiles_from_node(child)
+
+		if _is_projectile(child):
+			parent.remove_child(child)
+			child.queue_free()
+
+
+func _is_projectile(node: Node) -> bool:
+	return node is PlayerProjectile or node is EnemyProjectile
 
 
 func _on_start_button_pressed() -> void:

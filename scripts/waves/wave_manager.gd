@@ -41,7 +41,7 @@ func start_wave(wave_index: int) -> bool:
 	_removed_enemy_instance_ids.clear()
 	if wave_index == 0:
 		_all_waves_cleared_emitted = false
-	_clear_spawned_enemies()
+	clear_active_enemies()
 
 	for enemy_index: int in range(wave_data.enemy_count):
 		_spawn_enemy(wave_data)
@@ -126,12 +126,30 @@ func _get_closest_spawn_distance(spawn_position: Vector2) -> float:
 	return closest_distance
 
 
-func _clear_spawned_enemies() -> void:
+func reset_progress() -> void:
+	clear_active_enemies()
+	current_wave_data = null
+	current_wave_index = -1
+	remaining_enemy_count = 0
+	_removed_enemy_instance_ids.clear()
+	_all_waves_cleared_emitted = false
+
+
+func clear_active_enemies() -> void:
+	var enemies_to_clear: Array[Enemy] = []
 	for enemy: Enemy in _spawned_enemies:
 		if is_instance_valid(enemy):
-			if enemy.get_parent() == self:
-				remove_child(enemy)
-			enemy.queue_free()
+			enemies_to_clear.append(enemy)
+
+	for child: Node in get_children():
+		var child_enemy: Enemy = child as Enemy
+		if child_enemy != null and not enemies_to_clear.has(child_enemy):
+			enemies_to_clear.append(child_enemy)
+
+	for enemy: Enemy in enemies_to_clear:
+		if enemy.get_parent() == self:
+			remove_child(enemy)
+		enemy.queue_free()
 
 	_spawned_enemies.clear()
 	_spawned_positions.clear()

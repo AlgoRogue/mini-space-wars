@@ -22,6 +22,10 @@ func start_cooldown() -> void:
 	cooldown_remaining = fire_cooldown
 
 
+func reset_cooldown() -> void:
+	cooldown_remaining = 0.0
+
+
 func handle_fire(is_fire_pressed: bool, spawn_global_position: Vector2, projectile_parent: Node) -> void:
 	if not is_fire_pressed or not can_fire():
 		return

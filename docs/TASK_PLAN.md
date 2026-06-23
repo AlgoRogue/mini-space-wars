@@ -205,22 +205,22 @@ Tasks:
 - [x] `M5-T16` — Show "Game Over" when player lives reach 0.
 - [x] `M5-T17` — Add a new game option to the result screen.
 - [x] `M5-T18` — Emit `restart_requested` from `ResultPanel`.
-- [ ] `M5-T19` — Implement `Main.reset_game()`.
-- [ ] `M5-T20` — Clear enemies and projectiles during reset.
-- [ ] `M5-T21` — Reset player position, lives, and invulnerability during reset.
-- [ ] `M5-T22` — Reset wave progress during reset.
-- [ ] `M5-T23` — Start Wave 1 after reset.
-- [ ] `M5-T24` — Show and hide UI elements based on the current game state.
+- [x] `M5-T19` — Implement `Main.reset_game()`.
+- [x] `M5-T20` — Clear enemies and projectiles during reset.
+- [x] `M5-T21` — Reset player position, lives, and invulnerability during reset.
+- [x] `M5-T22` — Reset wave progress during reset.
+- [x] `M5-T23` — Start Wave 1 after reset.
+- [x] `M5-T24` — Show and hide UI elements based on the current game state.
 - [x] `M5-T25` — Remove escaped enemies from wave tracking to prevent wave softlock.
 
 Completion check:
 
-- [ ] Game starts from the start screen.
-- [ ] HUD appears during gameplay.
-- [ ] HUD updates lives and current wave.
-- [ ] Win result appears after all waves are cleared.
-- [ ] Game Over result appears when player lives reach 0.
-- [ ] Restart starts a clean new game from Wave 1.
+- [x] Game starts from the start screen.
+- [x] HUD appears during gameplay.
+- [x] HUD updates lives and current wave.
+- [x] Win result appears after all waves are cleared.
+- [x] Game Over result appears when player lives reach 0.
+- [x] Restart starts a clean new game from Wave 1.
 
 ## 9. Milestone 6: Feedback, Assets, and Balance
 

@@ -24,6 +24,15 @@ func _ready() -> void:
 	current_lives = starting_lives
 
 
+func reset_for_new_game(start_position: Vector2) -> void:
+	position = start_position
+	velocity = Vector2.ZERO
+	current_lives = starting_lives
+	_invulnerability_remaining = 0.0
+	_is_dead = false
+	weapon.reset_cooldown()
+
+
 func _physics_process(delta: float) -> void:
 	_update_invulnerability(delta)
 	var input_direction: Vector2 = _get_input_direction()

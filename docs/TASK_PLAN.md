@@ -113,12 +113,12 @@ Tasks:
 - [x] `M3-T03` — Add the first pixel art enemy ship sprite.
 - [x] `M3-T04` — Implement enemy downward movement.
 - [x] `M3-T05` — Implement slight horizontal oscillation.
-- [ ] `M3-T06` — Create the `EnemyWeapon` script.
-- [ ] `M3-T07` — Create the `EnemyProjectile` scene.
-- [ ] `M3-T08` — Create the `EnemyProjectile` script.
-- [ ] `M3-T09` — Implement fixed-interval enemy firing.
-- [ ] `M3-T10` — Move enemy projectiles downward.
-- [ ] `M3-T11` — Remove enemy projectiles after they leave the play area.
+- [x] `M3-T06` — Create the `EnemyWeapon` script.
+- [x] `M3-T07` — Create the `EnemyProjectile` scene.
+- [x] `M3-T08` — Create the `EnemyProjectile` script.
+- [x] `M3-T09` — Implement fixed-interval enemy firing.
+- [x] `M3-T10` — Move enemy projectiles downward.
+- [x] `M3-T11` — Remove enemy projectiles after they leave the play area.
 - [ ] `M3-T12` — Implement `Area2D`-based hit detection for projectiles and ships.
 - [ ] `M3-T13` — Implement player projectile hitting enemy.
 - [ ] `M3-T14` — Destroy enemy in one hit from player projectile.

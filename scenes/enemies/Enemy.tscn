@@ -2,12 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dti468od8yflh" path="res://scripts/enemies/enemy.gd" id="1_enemy"]
 [ext_resource type="Texture2D" uid="uid://dbsg6jcpgjrkf" path="res://assets/sprites/enemy_ship.png" id="2_enemy_ship"]
+[ext_resource type="Script" uid="uid://cas1kffvhh2i8" path="res://scripts/enemies/enemy_weapon.gd" id="3_weapon"]
+[ext_resource type="PackedScene" path="res://scenes/projectiles/EnemyProjectile.tscn" id="4_projectile"]
 
 [node name="Enemy" type="Area2D" unique_id=1870348356]
+position = Vector2(640, 80)
 script = ExtResource("1_enemy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=399755741]
 texture_filter = 1
-position = Vector2(552, 129)
 scale = Vector2(4, 4)
 texture = ExtResource("2_enemy_ship")
+
+[node name="EnemyWeapon" type="Node2D" parent="." unique_id=2137533447]
+script = ExtResource("3_weapon")
+projectile_scene = ExtResource("4_projectile")
+
+[node name="ProjectileSpawnPoint" type="Marker2D" parent="EnemyWeapon" unique_id=1529791329]
+position = Vector2(0, 40)

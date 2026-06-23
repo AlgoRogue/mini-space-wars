@@ -53,5 +53,5 @@ func _on_area_entered(area: Area2D) -> void:
 
 	_has_hit_enemy = true
 	set_deferred("monitoring", false)
-	enemy.destroy()
+	enemy.destroy(true)
 	queue_free()

@@ -5,11 +5,13 @@ signal enemy_destroyed
 signal enemy_escaped
 
 const ESCAPE_CLEANUP_MARGIN: float = 32.0
+const TRANSIENT_GAMEPLAY_AUDIO_GROUP: StringName = &"transient_gameplay_audio"
 
 @export var vertical_speed: float = 90.0
 @export var horizontal_oscillation_amount: float = 24.0
 @export var horizontal_oscillation_speed: float = 2.0
 @export var destruction_effect_scene: PackedScene = preload("res://scenes/enemies/EnemyDestructionEffect.tscn")
+@export var destruction_sound: AudioStream = preload("res://assets/audio/enemy_destroy.wav")
 
 var _base_x_position: float = 0.0
 var _elapsed_time: float = 0.0
@@ -33,12 +35,14 @@ func _physics_process(delta: float) -> void:
 		escape()
 
 
-func destroy() -> void:
+func destroy(play_destruction_sound: bool = false) -> void:
 	if _is_destroyed:
 		return
 
 	_is_destroyed = true
 	_spawn_destruction_effect()
+	if play_destruction_sound:
+		_play_destruction_sound()
 	enemy_destroyed.emit()
 	queue_free()
 
@@ -80,3 +84,21 @@ func _spawn_destruction_effect() -> void:
 
 	effect_parent.add_child(effect)
 	effect.global_position = global_position
+
+
+func _play_destruction_sound() -> void:
+	if destruction_sound == null:
+		return
+
+	var sound_parent: Node = get_parent()
+	if sound_parent == null:
+		return
+
+	var sound_player := AudioStreamPlayer.new()
+	sound_player.name = "EnemyDestructionSound"
+	sound_player.stream = destruction_sound
+	sound_player.volume_db = -6.0
+	sound_player.add_to_group(TRANSIENT_GAMEPLAY_AUDIO_GROUP)
+	sound_player.finished.connect(sound_player.queue_free)
+	sound_parent.add_child(sound_player)
+	sound_player.play()

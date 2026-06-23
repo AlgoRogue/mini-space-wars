@@ -6,6 +6,8 @@ class_name Weapon
 
 var cooldown_remaining: float = 0.0
 
+@onready var fire_sound_player: AudioStreamPlayer = get_node_or_null("FireSoundPlayer") as AudioStreamPlayer
+
 
 func _physics_process(delta: float) -> void:
 	if cooldown_remaining <= 0.0:
@@ -24,6 +26,8 @@ func start_cooldown() -> void:
 
 func reset_cooldown() -> void:
 	cooldown_remaining = 0.0
+	if fire_sound_player != null:
+		fire_sound_player.stop()
 
 
 func handle_fire(is_fire_pressed: bool, spawn_global_position: Vector2, projectile_parent: Node) -> void:
@@ -50,3 +54,11 @@ func _spawn_projectile(spawn_global_position: Vector2, projectile_parent: Node) 
 
 	projectile_parent.add_child(projectile)
 	projectile.global_position = spawn_global_position
+	_play_fire_sound()
+
+
+func _play_fire_sound() -> void:
+	if fire_sound_player == null or fire_sound_player.stream == null:
+		return
+
+	fire_sound_player.play()

@@ -239,8 +239,8 @@ Tasks:
 - [x] `M6-T09` — Add enemy destruction visual feedback.
 - [x] `M6-T10` — Add player damage blink feedback.
 - [x] `M6-T11` — Add visible temporary invulnerability feedback.
-- [ ] `M6-T12` — Add 8-bit/chiptune-style player fire sound.
-- [ ] `M6-T13` — Add 8-bit/chiptune-style enemy destruction sound.
+- [x] `M6-T12` — Add 8-bit/chiptune-style player fire sound.
+- [x] `M6-T13` — Add 8-bit/chiptune-style enemy destruction sound.
 - [ ] `M6-T14` — Tune player acceleration.
 - [ ] `M6-T15` — Tune player deceleration.
 - [ ] `M6-T16` — Tune player maximum speed.

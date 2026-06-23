@@ -157,7 +157,12 @@ func _clear_projectiles_and_effects_from_node(parent: Node) -> void:
 
 
 func _is_reset_cleanup_node(node: Node) -> bool:
-	return node is PlayerProjectile or node is EnemyProjectile or node is EnemyDestructionEffect
+	return (
+		node is PlayerProjectile
+		or node is EnemyProjectile
+		or node is EnemyDestructionEffect
+		or node.is_in_group(&"transient_gameplay_audio")
+	)
 
 
 func _on_start_button_pressed() -> void:

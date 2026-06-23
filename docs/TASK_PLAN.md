@@ -91,16 +91,16 @@ Tasks:
 - [x] `M2-T11` — Spawn visible player projectiles from the player ship.
 - [x] `M2-T12` — Move player projectiles upward.
 - [x] `M2-T13` — Remove player projectiles after they leave the play area.
-- [ ] `M2-T14` — Add simple debug logs for firing if useful during development.
+- [x] `M2-T14` — Add simple debug logs for firing if useful during development.
 - [x] `M2-T15` — Configure gameplay viewport size.
 
 Completion check:
 
-- [ ] Player ship is visible.
-- [ ] Player moves with WASD.
-- [ ] Player cannot leave the play area.
-- [ ] Holding Space creates visible upward-moving projectiles.
-- [ ] Projectiles are removed after leaving the play area.
+- [x] Player ship is visible.
+- [x] Player moves with WASD.
+- [x] Player cannot leave the play area.
+- [x] Holding Space creates visible upward-moving projectiles.
+- [x] Projectiles are removed after leaving the play area.
 
 ## 6. Milestone 3: Enemy and Collision
 
@@ -108,11 +108,11 @@ Goal: Add the enemy, projectile collision, player damage, lives, and temporary i
 
 Tasks:
 
-- [ ] `M3-T01` — Create the `Enemy` scene.
-- [ ] `M3-T02` — Create the `Enemy` script.
-- [ ] `M3-T03` — Add the first pixel art enemy ship sprite.
-- [ ] `M3-T04` — Implement enemy downward movement.
-- [ ] `M3-T05` — Implement slight horizontal oscillation.
+- [x] `M3-T01` — Create the `Enemy` scene.
+- [x] `M3-T02` — Create the `Enemy` script.
+- [x] `M3-T03` — Add the first pixel art enemy ship sprite.
+- [x] `M3-T04` — Implement enemy downward movement.
+- [x] `M3-T05` — Implement slight horizontal oscillation.
 - [ ] `M3-T06` — Create the `EnemyWeapon` script.
 - [ ] `M3-T07` — Create the `EnemyProjectile` scene.
 - [ ] `M3-T08` — Create the `EnemyProjectile` script.

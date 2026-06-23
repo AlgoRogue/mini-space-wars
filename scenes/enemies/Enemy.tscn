@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ccudobnk7x6ro"]
+
+[ext_resource type="Script" uid="uid://dti468od8yflh" path="res://scripts/enemies/enemy.gd" id="1_enemy"]
+[ext_resource type="Texture2D" uid="uid://dbsg6jcpgjrkf" path="res://assets/sprites/enemy_ship.png" id="2_enemy_ship"]
+
+[node name="Enemy" type="Area2D" unique_id=1870348356]
+script = ExtResource("1_enemy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=399755741]
+texture_filter = 1
+position = Vector2(552, 129)
+scale = Vector2(4, 4)
+texture = ExtResource("2_enemy_ship")

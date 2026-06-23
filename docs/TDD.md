@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars TDD |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.1 |
+| Version | v1.3 |
 | Date | June 23, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -96,6 +96,7 @@ The game state will be tracked in `Main` with a simple enum-like state value. Pl
 - Receiving win and loss events
 - Switching to the result state
 - Coordinating between gameplay objects and UI
+- Starting and stopping simple state-based background music
 
 Wave spawning and wave completion tracking will be handled by a lightweight `WaveManager` script. The `WaveManager` should remain small and focused on:
 
@@ -123,6 +124,7 @@ The `Player` script is responsible for:
 - Managing the 1.5-second temporary invulnerability period
 - Emitting events when the player takes damage
 - Emitting an event when the player runs out of lives
+- Playing the simple player damage sound on valid damage
 
 The player movement should use acceleration and deceleration values, while still keeping the ship responsive.
 
@@ -374,6 +376,8 @@ Planned audio asset location:
 ```text
 res://assets/audio/
 ```
+
+MVP audio assets include the player fire sound, enemy destruction sound, player damage sound, start screen music, and gameplay music.
 
 Godot import settings should preserve pixel art readability. Sprite filtering should be disabled where needed to avoid blurry pixel art.
 

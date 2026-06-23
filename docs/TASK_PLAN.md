@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars Implementation Task Plan |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.3 |
+| Version | v1.5 |
 | Date | June 23, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -241,27 +241,29 @@ Tasks:
 - [x] `M6-T11` — Add visible temporary invulnerability feedback.
 - [x] `M6-T12` — Add 8-bit/chiptune-style player fire sound.
 - [x] `M6-T13` — Add 8-bit/chiptune-style enemy destruction sound.
-- [ ] `M6-T14` — Tune player acceleration.
-- [ ] `M6-T15` — Tune player deceleration.
-- [ ] `M6-T16` — Tune player maximum speed.
-- [ ] `M6-T17` — Tune weapon fire cooldown.
-- [ ] `M6-T18` — Tune projectile speeds.
-- [ ] `M6-T19` — Tune enemy movement speed.
-- [ ] `M6-T20` — Tune enemy horizontal oscillation amount.
-- [ ] `M6-T21` — Tune enemy fire intervals per wave.
-- [ ] `M6-T22` — Run manual playtests for average session length.
-- [ ] `M6-T23` — Run manual playtests for medium difficulty.
-- [ ] `M6-T24` — Run manual playtests for damage feedback clarity.
-- [ ] `M6-T25` — Run manual playtests for wave difficulty progression.
+- [x] `M6-T14` — Tune player acceleration.
+- [x] `M6-T15` — Tune player deceleration.
+- [x] `M6-T16` — Tune player maximum speed.
+- [x] `M6-T17` — Tune weapon fire cooldown.
+- [x] `M6-T18` — Tune projectile speeds.
+- [x] `M6-T19` — Tune enemy movement speed.
+- [x] `M6-T20` — Tune enemy horizontal oscillation amount.
+- [x] `M6-T21` — Tune enemy fire intervals per wave.
+- [x] `M6-T22` — Run manual playtests for average session length.
+- [x] `M6-T23` — Run manual playtests for medium difficulty.
+- [x] `M6-T24` — Run manual playtests for damage feedback clarity.
+- [x] `M6-T25` — Run manual playtests for wave difficulty progression.
+- [x] `M6-T26` — Add 8-bit/chiptune-style player damage sound.
+- [x] `M6-T27` — Add looped start and gameplay background music.
 
 Completion check:
 
-- [ ] Required MVP sprites are present.
-- [ ] Required MVP sound effects are present.
-- [ ] Player damage and invulnerability are visibly understandable.
-- [ ] Enemy destruction is visibly understandable.
-- [ ] Game can be completed in approximately 2-4 minutes.
-- [ ] Difficulty feels medium based on manual playtesting.
+- [x] Required MVP sprites are present.
+- [x] Required MVP sound effects are present.
+- [x] Player damage and invulnerability are visibly understandable.
+- [x] Enemy destruction is visibly understandable.
+- [x] Game can be completed in approximately 2-4 minutes.
+- [x] Difficulty feels medium based on manual playtesting.
 
 ## 10. Milestone 7: Testing and Release Preparation
 

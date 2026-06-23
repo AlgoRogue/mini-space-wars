@@ -10,8 +10,13 @@ enum GameState {
 	GAME_OVER,
 }
 
+const MUSIC_TARGET_VOLUME_DB: float = -12.0
+const MUSIC_SILENT_VOLUME_DB: float = -60.0
+const MUSIC_FADE_DURATION: float = 0.6
+
 var current_state: GameState = GameState.START
 var _player_start_position: Vector2 = Vector2.ZERO
+var _music_tween: Tween
 
 @onready var gameplay_root: Node2D = $GameplayRoot
 @onready var player: Player = $GameplayRoot/Player
@@ -20,10 +25,14 @@ var _player_start_position: Vector2 = Vector2.ZERO
 @onready var hud: HUD = $UI/HUD
 @onready var result_panel: ResultPanel = $UI/ResultPanel
 @onready var start_button: Button = $UI/StartUI/Content/StartButton
+@onready var title_music_player: AudioStreamPlayer = $Audio/TitleMusicPlayer
+@onready var gameplay_music_player: AudioStreamPlayer = $Audio/GameplayMusicPlayer
 
 
 func _ready() -> void:
 	_player_start_position = player.position
+	_configure_music_player(title_music_player)
+	_configure_music_player(gameplay_music_player)
 
 	if not start_button.pressed.is_connected(_on_start_button_pressed):
 		start_button.pressed.connect(_on_start_button_pressed)
@@ -77,6 +86,7 @@ func _enter_start_state() -> void:
 	result_panel.visible = false
 	gameplay_root.visible = false
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
+	_transition_music(title_music_player, gameplay_music_player)
 	start_button.grab_focus()
 
 
@@ -86,6 +96,7 @@ func _enter_playing_state() -> void:
 	result_panel.visible = false
 	gameplay_root.visible = true
 	gameplay_root.process_mode = Node.PROCESS_MODE_INHERIT
+	_transition_music(gameplay_music_player, title_music_player)
 	_update_hud_values()
 	game_started.emit()
 
@@ -97,6 +108,8 @@ func _enter_win_state() -> void:
 	result_panel.show_result("You Win")
 	gameplay_root.visible = false
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
+	_fade_out_music(gameplay_music_player)
+	_stop_music_player(title_music_player)
 
 
 func _enter_game_over_state() -> void:
@@ -106,6 +119,8 @@ func _enter_game_over_state() -> void:
 	result_panel.show_result("Game Over")
 	gameplay_root.visible = false
 	gameplay_root.process_mode = Node.PROCESS_MODE_DISABLED
+	_fade_out_music(gameplay_music_player)
+	_stop_music_player(title_music_player)
 
 
 func _connect_hud_signals() -> void:
@@ -166,6 +181,53 @@ func _is_reset_cleanup_node(node: Node) -> bool:
 		or node is EnemyDestructionEffect
 		or node.is_in_group(&"transient_gameplay_audio")
 	)
+
+
+func _configure_music_player(music_player: AudioStreamPlayer) -> void:
+	if music_player.stream != null:
+		music_player.stream.set("loop", true)
+	music_player.volume_db = MUSIC_SILENT_VOLUME_DB
+
+
+func _transition_music(active_player: AudioStreamPlayer, inactive_player: AudioStreamPlayer) -> void:
+	_stop_music_tween()
+	_music_tween = create_tween()
+	_music_tween.set_parallel(true)
+
+	_ensure_music_playing(active_player)
+	_music_tween.tween_property(active_player, "volume_db", MUSIC_TARGET_VOLUME_DB, MUSIC_FADE_DURATION)
+
+	if inactive_player.playing:
+		_music_tween.tween_property(inactive_player, "volume_db", MUSIC_SILENT_VOLUME_DB, MUSIC_FADE_DURATION)
+		_music_tween.tween_callback(inactive_player.stop).set_delay(MUSIC_FADE_DURATION)
+
+
+func _fade_out_music(music_player: AudioStreamPlayer) -> void:
+	if not music_player.playing:
+		return
+
+	_stop_music_tween()
+	_music_tween = create_tween()
+	_music_tween.tween_property(music_player, "volume_db", MUSIC_SILENT_VOLUME_DB, MUSIC_FADE_DURATION)
+	_music_tween.tween_callback(music_player.stop)
+
+
+func _ensure_music_playing(music_player: AudioStreamPlayer) -> void:
+	if music_player.playing:
+		return
+
+	music_player.volume_db = MUSIC_SILENT_VOLUME_DB
+	music_player.play()
+
+
+func _stop_music_player(music_player: AudioStreamPlayer) -> void:
+	music_player.stop()
+	music_player.volume_db = MUSIC_SILENT_VOLUME_DB
+
+
+func _stop_music_tween() -> void:
+	if _music_tween != null and _music_tween.is_valid():
+		_music_tween.kill()
 
 
 func _on_start_button_pressed() -> void:

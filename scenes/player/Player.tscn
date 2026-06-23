@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddj1vsy3nci4r"]
+[gd_scene load_steps=8 format=3 uid="uid://ddj1vsy3nci4r"]
 
 [ext_resource type="Script" uid="uid://cdgs3mvoa5imp" path="res://scripts/player/player.gd" id="1_player"]
 [ext_resource type="Texture2D" uid="uid://cnprdg3enn46l" path="res://assets/sprites/player_ship.png" id="2_ship"]
 [ext_resource type="Script" uid="uid://34ekxxqrvxbo" path="res://scripts/player/weapon.gd" id="3_weapon"]
 [ext_resource type="PackedScene" path="res://scenes/projectiles/PlayerProjectile.tscn" id="4_projectile"]
 [ext_resource type="AudioStream" path="res://assets/audio/player_fire.wav" id="5_fire_sound"]
+[ext_resource type="AudioStream" path="res://assets/audio/player_damage.wav" id="6_damage_sound"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(48, 48)
@@ -34,6 +35,10 @@ projectile_scene = ExtResource("4_projectile")
 stream = ExtResource("5_fire_sound")
 volume_db = -8.0
 max_polyphony = 4
+
+[node name="DamageSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_damage_sound")
+volume_db = -6.0
 
 [node name="ProjectileSpawnPoint" type="Marker2D" parent="." unique_id=342526732]
 position = Vector2(0, -40)

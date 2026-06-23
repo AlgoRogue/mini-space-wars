@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars GDD |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.0 |
+| Version | v1.2 |
 | Date | June 21, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -150,6 +150,8 @@ Audio feedback includes:
 
 - A simple sound when the player fires the basic weapon
 - A simple sound when an enemy is destroyed
+- A simple sound when the player takes valid damage
+- Simple looped background music for the start screen and gameplay
 
 The MVP does not include screen shake, advanced particle effects, complex animations, voice-over, or a full music system.
 
@@ -185,14 +187,15 @@ The MVP does not require detailed animations, high-resolution illustrations, com
 
 ## 15. Audio Direction
 
-The MVP does not include background music.
-
-The game uses simple 8-bit/chiptune-style sound effects for core gameplay feedback. The MVP audio scope includes:
+The game uses simple 8-bit/chiptune-style sound effects for core gameplay feedback and simple looped background music for screen state clarity. The MVP audio scope includes:
 
 - Player basic weapon fire sound
 - Enemy destruction sound
+- Player damage sound
+- Start screen background music
+- Gameplay background music
 
-The MVP does not include background music, ambient audio, voice-over, advanced sound mixing, or multiple sound variations for the same action.
+The MVP does not include ambient audio, voice-over, advanced sound mixing, dynamic music systems, or multiple sound variations for the same action.
 
 ## 16. MVP Content List
 
@@ -216,6 +219,9 @@ The MVP requires the following gameplay and presentation content:
 - Player damage blink feedback
 - Simple 8-bit/chiptune-style fire sound
 - Simple 8-bit/chiptune-style enemy destruction sound
+- Simple 8-bit/chiptune-style player damage sound
+- Simple looped start screen music
+- Simple looped gameplay music
 
 ## 17. Out of Scope
 

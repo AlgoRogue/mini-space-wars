@@ -6,7 +6,7 @@
 |---|---|
 | Document Name | Mini Space Wars PRD |
 | Product / Project Name | Mini Space Wars |
-| Version | v1.1 |
+| Version | v1.2 |
 | Date | June 21, 2026 |
 | Product Owner / Developer | Oguzhan FIDE |
 | Support | ChatGPT / Codex |
@@ -46,6 +46,7 @@ The Mini Space Wars MVP is limited to a short, completable, and publishable 2D v
 - Player taking damage from enemy projectiles and enemy ship contact
 - Wave completion and game end states
 - Simple start, gameplay, and result screens
+- Simple start and gameplay background music
 - Desktop build shareable through GitHub Releases
 
 ## 6. Out of Scope

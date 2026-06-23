@@ -25,6 +25,7 @@ var _is_dead: bool = false
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var weapon: Weapon = $Weapon
 @onready var projectile_spawn_point: Marker2D = $ProjectileSpawnPoint
+@onready var damage_sound_player: AudioStreamPlayer = get_node_or_null("DamageSoundPlayer") as AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -39,6 +40,7 @@ func reset_for_new_game(start_position: Vector2) -> void:
 	_damage_blink_remaining = 0.0
 	_is_dead = false
 	_reset_visual_feedback()
+	_stop_damage_sound()
 	weapon.reset_cooldown()
 
 
@@ -60,6 +62,7 @@ func apply_damage(amount: int = 1) -> bool:
 	current_lives = maxi(current_lives - amount, 0)
 	_invulnerability_remaining = invulnerability_duration
 	_damage_blink_remaining = DAMAGE_BLINK_DURATION
+	_play_damage_sound()
 	player_damaged.emit(current_lives)
 
 	if current_lives == 0 and not _is_dead:
@@ -124,6 +127,20 @@ func _apply_invulnerability_visual() -> void:
 func _reset_visual_feedback() -> void:
 	sprite.visible = true
 	sprite.modulate = Color.WHITE
+
+
+func _play_damage_sound() -> void:
+	if damage_sound_player == null or damage_sound_player.stream == null:
+		return
+
+	damage_sound_player.play()
+
+
+func _stop_damage_sound() -> void:
+	if damage_sound_player == null:
+		return
+
+	damage_sound_player.stop()
 
 
 func _get_input_direction() -> Vector2:

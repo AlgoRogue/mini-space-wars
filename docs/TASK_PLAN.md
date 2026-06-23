@@ -187,14 +187,14 @@ Goal: Implement the full game flow with start, gameplay, win, game over, HUD, an
 
 Tasks:
 
-- [ ] `M5-T01` — Implement the `START` game state.
-- [ ] `M5-T02` — Implement the `PLAYING` game state.
-- [ ] `M5-T03` — Implement the `WIN` game state.
-- [ ] `M5-T04` — Implement the `GAME_OVER` game state.
-- [ ] `M5-T05` — Add start UI inside the `Main` scene.
-- [ ] `M5-T06` — Display the game title on the start screen.
-- [ ] `M5-T07` — Display a start prompt on the start screen.
-- [ ] `M5-T08` — Display a controls hint on the start screen.
+- [x] `M5-T01` — Implement the `START` game state.
+- [x] `M5-T02` — Implement the `PLAYING` game state.
+- [x] `M5-T03` — Implement the `WIN` game state.
+- [x] `M5-T04` — Implement the `GAME_OVER` game state.
+- [x] `M5-T05` — Add start UI inside the `Main` scene.
+- [x] `M5-T06` — Display the game title on the start screen.
+- [x] `M5-T07` — Display a start prompt on the start screen.
+- [x] `M5-T08` — Display a controls hint on the start screen.
 - [ ] `M5-T09` — Create the `HUD` scene.
 - [ ] `M5-T10` — Display player lives in the HUD.
 - [ ] `M5-T11` — Display current wave number in the HUD.

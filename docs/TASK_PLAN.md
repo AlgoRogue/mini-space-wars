@@ -84,13 +84,13 @@ Tasks:
 - [x] `M2-T04` — Implement WASD movement.
 - [x] `M2-T05` — Implement slightly accelerated movement.
 - [x] `M2-T06` — Clamp the player ship inside the visible gameplay bounds.
-- [ ] `M2-T07` — Create the `Weapon` script for the basic player weapon.
-- [ ] `M2-T08` — Create the `PlayerProjectile` scene.
-- [ ] `M2-T09` — Create the `PlayerProjectile` script.
-- [ ] `M2-T10` — Implement hold-to-fire behavior with Space.
-- [ ] `M2-T11` — Spawn visible player projectiles from the player ship.
-- [ ] `M2-T12` — Move player projectiles upward.
-- [ ] `M2-T13` — Remove player projectiles after they leave the play area.
+- [x] `M2-T07` — Create the `Weapon` script for the basic player weapon.
+- [x] `M2-T08` — Create the `PlayerProjectile` scene.
+- [x] `M2-T09` — Create the `PlayerProjectile` script.
+- [x] `M2-T10` — Implement hold-to-fire behavior with Space.
+- [x] `M2-T11` — Spawn visible player projectiles from the player ship.
+- [x] `M2-T12` — Move player projectiles upward.
+- [x] `M2-T13` — Remove player projectiles after they leave the play area.
 - [ ] `M2-T14` — Add simple debug logs for firing if useful during development.
 - [x] `M2-T15` — Configure gameplay viewport size.
 

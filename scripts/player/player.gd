@@ -8,6 +8,8 @@ class_name Player
 var velocity: Vector2 = Vector2.ZERO
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var weapon: Weapon = $Weapon
+@onready var projectile_spawn_point: Marker2D = $ProjectileSpawnPoint
 
 
 func _physics_process(delta: float) -> void:
@@ -15,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	_update_velocity(input_direction, delta)
 	position += velocity * delta
 	_clamp_to_viewport()
+	_handle_fire_input()
 
 
 func _get_input_direction() -> Vector2:
@@ -62,3 +65,19 @@ func _clamp_axis(value: float, minimum_value: float, maximum_value: float) -> fl
 		return (minimum_value + maximum_value) * 0.5
 
 	return clampf(value, minimum_value, maximum_value)
+
+
+func _handle_fire_input() -> void:
+	weapon.handle_fire(
+		Input.is_action_pressed("fire"),
+		projectile_spawn_point.global_position,
+		_get_projectile_parent()
+	)
+
+
+func _get_projectile_parent() -> Node:
+	var parent_node: Node = get_parent()
+	if parent_node != null:
+		return parent_node
+
+	return get_tree().root

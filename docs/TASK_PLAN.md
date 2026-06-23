@@ -234,11 +234,11 @@ Tasks:
 - [x] `M6-T04` — Finalize the MVP pixel art enemy projectile sprite.
 - [x] `M6-T05` — Finalize the basic enemy destruction effect.
 - [x] `M6-T06` — Finalize the simple dark space background.
-- [ ] `M6-T07` — Add player projectile visual feedback.
-- [ ] `M6-T08` — Add enemy projectile visual feedback.
-- [ ] `M6-T09` — Add enemy destruction visual feedback.
-- [ ] `M6-T10` — Add player damage blink feedback.
-- [ ] `M6-T11` — Add visible temporary invulnerability feedback.
+- [x] `M6-T07` — Add player projectile visual feedback.
+- [x] `M6-T08` — Add enemy projectile visual feedback.
+- [x] `M6-T09` — Add enemy destruction visual feedback.
+- [x] `M6-T10` — Add player damage blink feedback.
+- [x] `M6-T11` — Add visible temporary invulnerability feedback.
 - [ ] `M6-T12` — Add 8-bit/chiptune-style player fire sound.
 - [ ] `M6-T13` — Add 8-bit/chiptune-style enemy destruction sound.
 - [ ] `M6-T14` — Tune player acceleration.

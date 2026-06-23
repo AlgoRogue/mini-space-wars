@@ -49,7 +49,7 @@ func start_game() -> void:
 
 func reset_game() -> void:
 	_clear_active_enemies()
-	_clear_projectiles()
+	_clear_projectiles_and_effects()
 	player.reset_for_new_game(_player_start_position)
 	wave_manager.reset_progress()
 	set_game_state(GameState.PLAYING)
@@ -143,21 +143,21 @@ func _clear_active_enemies() -> void:
 	wave_manager.clear_active_enemies()
 
 
-func _clear_projectiles() -> void:
-	_clear_projectiles_from_node(gameplay_root)
+func _clear_projectiles_and_effects() -> void:
+	_clear_projectiles_and_effects_from_node(gameplay_root)
 
 
-func _clear_projectiles_from_node(parent: Node) -> void:
+func _clear_projectiles_and_effects_from_node(parent: Node) -> void:
 	for child: Node in parent.get_children():
-		_clear_projectiles_from_node(child)
+		_clear_projectiles_and_effects_from_node(child)
 
-		if _is_projectile(child):
+		if _is_reset_cleanup_node(child):
 			parent.remove_child(child)
 			child.queue_free()
 
 
-func _is_projectile(node: Node) -> bool:
-	return node is PlayerProjectile or node is EnemyProjectile
+func _is_reset_cleanup_node(node: Node) -> bool:
+	return node is PlayerProjectile or node is EnemyProjectile or node is EnemyDestructionEffect
 
 
 func _on_start_button_pressed() -> void:

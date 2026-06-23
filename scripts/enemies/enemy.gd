@@ -9,6 +9,7 @@ const ESCAPE_CLEANUP_MARGIN: float = 32.0
 @export var vertical_speed: float = 90.0
 @export var horizontal_oscillation_amount: float = 24.0
 @export var horizontal_oscillation_speed: float = 2.0
+@export var destruction_effect_scene: PackedScene = preload("res://scenes/enemies/EnemyDestructionEffect.tscn")
 
 var _base_x_position: float = 0.0
 var _elapsed_time: float = 0.0
@@ -37,6 +38,7 @@ func destroy() -> void:
 		return
 
 	_is_destroyed = true
+	_spawn_destruction_effect()
 	enemy_destroyed.emit()
 	queue_free()
 
@@ -62,3 +64,19 @@ func _on_area_entered(area: Area2D) -> void:
 
 	player.apply_damage()
 	destroy()
+
+
+func _spawn_destruction_effect() -> void:
+	if destruction_effect_scene == null:
+		return
+
+	var effect_parent: Node = get_parent()
+	if effect_parent == null:
+		return
+
+	var effect: EnemyDestructionEffect = destruction_effect_scene.instantiate() as EnemyDestructionEffect
+	if effect == null:
+		return
+
+	effect_parent.add_child(effect)
+	effect.global_position = global_position

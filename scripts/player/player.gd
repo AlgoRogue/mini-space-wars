@@ -4,6 +4,12 @@ class_name Player
 signal player_damaged(remaining_lives: int)
 signal player_dead
 
+const DAMAGE_BLINK_DURATION: float = 0.24
+const DAMAGE_BLINK_INTERVAL: float = 0.06
+const INVULNERABILITY_FLASH_INTERVAL: float = 0.12
+const DAMAGE_BLINK_COLOR: Color = Color(1.0, 0.25, 0.25, 1.0)
+const INVULNERABILITY_FLASH_COLOR: Color = Color(0.45, 0.9, 1.0, 0.62)
+
 @export var max_speed: float = 320.0
 @export var acceleration: float = 1800.0
 @export var deceleration: float = 2200.0
@@ -13,6 +19,7 @@ signal player_dead
 var velocity: Vector2 = Vector2.ZERO
 var current_lives: int = 0
 var _invulnerability_remaining: float = 0.0
+var _damage_blink_remaining: float = 0.0
 var _is_dead: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -29,17 +36,21 @@ func reset_for_new_game(start_position: Vector2) -> void:
 	velocity = Vector2.ZERO
 	current_lives = starting_lives
 	_invulnerability_remaining = 0.0
+	_damage_blink_remaining = 0.0
 	_is_dead = false
+	_reset_visual_feedback()
 	weapon.reset_cooldown()
 
 
 func _physics_process(delta: float) -> void:
 	_update_invulnerability(delta)
+	_update_damage_blink(delta)
 	var input_direction: Vector2 = _get_input_direction()
 	_update_velocity(input_direction, delta)
 	position += velocity * delta
 	_clamp_to_viewport()
 	_handle_fire_input()
+	_update_visual_feedback()
 
 
 func apply_damage(amount: int = 1) -> bool:
@@ -48,6 +59,7 @@ func apply_damage(amount: int = 1) -> bool:
 
 	current_lives = maxi(current_lives - amount, 0)
 	_invulnerability_remaining = invulnerability_duration
+	_damage_blink_remaining = DAMAGE_BLINK_DURATION
 	player_damaged.emit(current_lives)
 
 	if current_lives == 0 and not _is_dead:
@@ -66,6 +78,52 @@ func _update_invulnerability(delta: float) -> void:
 		return
 
 	_invulnerability_remaining = maxf(_invulnerability_remaining - delta, 0.0)
+
+
+func _update_damage_blink(delta: float) -> void:
+	if _damage_blink_remaining <= 0.0:
+		return
+
+	_damage_blink_remaining = maxf(_damage_blink_remaining - delta, 0.0)
+
+
+func _update_visual_feedback() -> void:
+	sprite.visible = true
+
+	if _damage_blink_remaining > 0.0:
+		_apply_damage_blink_visual()
+		return
+
+	if is_invulnerable():
+		_apply_invulnerability_visual()
+		return
+
+	_reset_visual_feedback()
+
+
+func _apply_damage_blink_visual() -> void:
+	var elapsed_blink: float = DAMAGE_BLINK_DURATION - _damage_blink_remaining
+	var flash_step: int = int(elapsed_blink / DAMAGE_BLINK_INTERVAL)
+	if flash_step % 2 == 0:
+		sprite.modulate = DAMAGE_BLINK_COLOR
+		return
+
+	sprite.modulate = Color.WHITE
+
+
+func _apply_invulnerability_visual() -> void:
+	var elapsed_invulnerability: float = invulnerability_duration - _invulnerability_remaining
+	var flash_step: int = int(elapsed_invulnerability / INVULNERABILITY_FLASH_INTERVAL)
+	if flash_step % 2 == 0:
+		sprite.modulate = INVULNERABILITY_FLASH_COLOR
+		return
+
+	sprite.modulate = Color.WHITE
+
+
+func _reset_visual_feedback() -> void:
+	sprite.visible = true
+	sprite.modulate = Color.WHITE
 
 
 func _get_input_direction() -> Vector2:

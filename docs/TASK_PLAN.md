@@ -211,6 +211,7 @@ Tasks:
 - [ ] `M5-T22` — Reset wave progress during reset.
 - [ ] `M5-T23` — Start Wave 1 after reset.
 - [ ] `M5-T24` — Show and hide UI elements based on the current game state.
+- [x] `M5-T25` — Remove escaped enemies from wave tracking to prevent wave softlock.
 
 Completion check:
 

@@ -20,7 +20,7 @@ var remaining_enemy_count: int = 0
 var _random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
 var _spawned_enemies: Array[Enemy] = []
 var _spawned_positions: Array[Vector2] = []
-var _destroyed_enemy_instance_ids: Array[int] = []
+var _removed_enemy_instance_ids: Array[int] = []
 var _all_waves_cleared_emitted: bool = false
 
 
@@ -38,7 +38,7 @@ func start_wave(wave_index: int) -> bool:
 	current_wave_data = wave_data
 	current_wave_index = wave_index
 	remaining_enemy_count = wave_data.enemy_count
-	_destroyed_enemy_instance_ids.clear()
+	_removed_enemy_instance_ids.clear()
 	if wave_index == 0:
 		_all_waves_cleared_emitted = false
 	_clear_spawned_enemies()
@@ -74,6 +74,7 @@ func _spawn_enemy(wave_data: WaveData) -> void:
 	enemy.position = _get_spawn_position(wave_data.spawn_area_limits)
 	_configure_enemy_weapon(enemy, wave_data.enemy_fire_interval)
 	enemy.enemy_destroyed.connect(_on_enemy_destroyed.bind(enemy))
+	enemy.enemy_escaped.connect(_on_enemy_escaped.bind(enemy))
 	add_child(enemy)
 	_spawned_enemies.append(enemy)
 	_spawned_positions.append(enemy.position)
@@ -137,20 +138,28 @@ func _clear_spawned_enemies() -> void:
 
 
 func _on_enemy_destroyed(enemy: Enemy) -> void:
+	_remove_enemy_from_current_wave(enemy, "Enemy destroyed")
+
+
+func _on_enemy_escaped(enemy: Enemy) -> void:
+	_remove_enemy_from_current_wave(enemy, "Enemy escaped")
+
+
+func _remove_enemy_from_current_wave(enemy: Enemy, log_message: String) -> void:
 	if enemy == null:
 		return
 
 	var enemy_instance_id: int = enemy.get_instance_id()
-	if _destroyed_enemy_instance_ids.has(enemy_instance_id):
+	if _removed_enemy_instance_ids.has(enemy_instance_id):
 		return
 
-	_destroyed_enemy_instance_ids.append(enemy_instance_id)
+	_removed_enemy_instance_ids.append(enemy_instance_id)
 	_spawned_enemies.erase(enemy)
 	if enemy.get_parent() == self:
 		remove_child(enemy)
 
 	remaining_enemy_count = max(remaining_enemy_count - 1, 0)
-	print("Enemy destroyed: %d remaining" % remaining_enemy_count)
+	print("%s: %d remaining" % [log_message, remaining_enemy_count])
 
 	if remaining_enemy_count == 0:
 		_complete_current_wave()

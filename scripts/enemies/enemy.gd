@@ -2,6 +2,9 @@ extends Area2D
 class_name Enemy
 
 signal enemy_destroyed
+signal enemy_escaped
+
+const ESCAPE_CLEANUP_MARGIN: float = 32.0
 
 @export var vertical_speed: float = 90.0
 @export var horizontal_oscillation_amount: float = 24.0
@@ -18,9 +21,15 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _is_destroyed:
+		return
+
 	_elapsed_time += delta
 	position.y += vertical_speed * delta
 	position.x = _base_x_position + sin(_elapsed_time * horizontal_oscillation_speed) * horizontal_oscillation_amount
+
+	if _has_escaped_visible_area():
+		escape()
 
 
 func destroy() -> void:
@@ -30,6 +39,20 @@ func destroy() -> void:
 	_is_destroyed = true
 	enemy_destroyed.emit()
 	queue_free()
+
+
+func escape() -> void:
+	if _is_destroyed:
+		return
+
+	_is_destroyed = true
+	enemy_escaped.emit()
+	queue_free()
+
+
+func _has_escaped_visible_area() -> bool:
+	var viewport_rect: Rect2 = get_viewport_rect()
+	return global_position.y > viewport_rect.end.y + ESCAPE_CLEANUP_MARGIN
 
 
 func _on_area_entered(area: Area2D) -> void:

@@ -228,12 +228,12 @@ Goal: Add MVP-level visual/audio feedback, finalize required MVP assets, and tun
 
 Tasks:
 
-- [ ] `M6-T01` — Finalize the MVP pixel art player ship sprite.
-- [ ] `M6-T02` — Finalize the MVP pixel art enemy ship sprite.
-- [ ] `M6-T03` — Finalize the MVP pixel art player projectile sprite.
-- [ ] `M6-T04` — Finalize the MVP pixel art enemy projectile sprite.
-- [ ] `M6-T05` — Finalize the basic enemy destruction effect.
-- [ ] `M6-T06` — Finalize the simple dark space background.
+- [x] `M6-T01` — Finalize the MVP pixel art player ship sprite.
+- [x] `M6-T02` — Finalize the MVP pixel art enemy ship sprite.
+- [x] `M6-T03` — Finalize the MVP pixel art player projectile sprite.
+- [x] `M6-T04` — Finalize the MVP pixel art enemy projectile sprite.
+- [x] `M6-T05` — Finalize the basic enemy destruction effect.
+- [x] `M6-T06` — Finalize the simple dark space background.
 - [ ] `M6-T07` — Add player projectile visual feedback.
 - [ ] `M6-T08` — Add enemy projectile visual feedback.
 - [ ] `M6-T09` — Add enemy destruction visual feedback.
